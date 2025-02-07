@@ -1,0 +1,805 @@
+{
+"Sheet1":[
+ {
+  "ID": 1,
+  "Kata (Gayo)": "abang",
+  "Token": "abang",
+  "POS Tagging": "Pronomina",
+  "Arti (Indonesia)": "Kakak laki-laki kandung atau sepupu dari garis ayah",
+  "Contoh Kalimat (Gayo)": "ari si abang",
+  "Contoh Kalimat (Indonesia)": "abang dari mana",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyebut kakak laki-laki kandung atau sepupu dari garis ayah.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 2,
+  "Kata (Gayo)": "abang sara ama",
+  "Token": "abang, sara, ama",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak kandung se-ayah",
+  "Contoh Kalimat (Gayo)": "aku orom we abang sara ama, len ine",
+  "Contoh Kalimat (Indonesia)": "saya dengan dia kakak se ayah dari ibu berbeda",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "mejelaskan hubungan ",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 3,
+  "Kata (Gayo)": "abang pedih",
+  "Token": "abang, pedih",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak kandung",
+  "Contoh Kalimat (Gayo)": "abang pedih ku leh oya",
+  "Contoh Kalimat (Indonesia)": "itu abang kandung saya ",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "mejelaskan hubungan ",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 4,
+  "Kata (Gayo)": "betutur abang",
+  "Token": "be, tutur, abang",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "menyebut sepupu kakak yang lebih tua karena hirarki keluarga, meski usia tidak lebih tua ",
+  "Contoh Kalimat (Gayo)": "be tutur abang ku aman Lina ",
+  "Contoh Kalimat (Indonesia)": "Saya menyebut Bapaknya si Lina dengan sebutan abang",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "digunakan untuk mengambarkan hirarki keluarga orang tua",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 5,
+  "Kata (Gayo)": "abang kul",
+  "Token": "abang, kul",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "kakak tertua untuk saudara kandung atau sepupu",
+  "Contoh Kalimat (Gayo)": "oya abang kul ku",
+  "Contoh Kalimat (Indonesia)": "Dia kakak tertua ku.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "mejelaskan hubungan ",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 6,
+  "Kata (Gayo)": "abang ere",
+  "Token": "abang, ere",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak tertua sinonim abang kul",
+  "Contoh Kalimat (Gayo)": "abang ere kami we",
+  "Contoh Kalimat (Indonesia)": "dia kakak tertua kami, kami disini bisa merujuk saudara kandung atau saudara se kakek",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "dialek Gayo Lues",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 7,
+  "Kata (Gayo)": "abang lah",
+  "Token": "abang,  lah",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak tengah dalam urutan saudara",
+  "Contoh Kalimat (Gayo)": "orom abang lah aku beloh",
+  "Contoh Kalimat (Indonesia)": "saya pergi dengan kakak tengah",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk membedakan urutan saudara.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 8,
+  "Kata (Gayo)": "abang ngah",
+  "Token": "abang, ngah",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak tengah (dalam urutan saudara)",
+  "Contoh Kalimat (Gayo)": "kusi beloh e ngah ne",
+  "Contoh Kalimat (Indonesia)": "Kemana perginya abang tengah",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk membedakan urutan saudara.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 9,
+  "Kata (Gayo)": "abang encu",
+  "Token": "abang, encu",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak bungsu (dalam urutan saudara)",
+  "Contoh Kalimat (Gayo)": "encu-encu e geh bewene",
+  "Contoh Kalimat (Indonesia)": "saudara-saudara bugsunya datang semua",
+  "sumber ": "Ibrahim (1984)",
+  "Keterangan": "Digunakan untuk menyebut kakak bungsu.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 10,
+  "Kata (Gayo)": "abang unggel",
+  "Token": "abang,  unggel",
+  "POS Tagging": "Nomina",
+  "Arti (Indonesia)": "Kakak tunggal, bisa seayah seibu atau sepupu",
+  "Contoh Kalimat (Gayo)": "ini aka ungel ku",
+  "Contoh Kalimat (Indonesia)": "ini kakak perempuan tunggal saya - biasanya sepupu",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "kata unggel digunakan masa kolonial, saatini lebih sering ditulis Ungel",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 11,
+  "Kata (Gayo)": "abangi",
+  "Token": "abang, i",
+  "POS Tagging": "Verba",
+  "Arti (Indonesia)": "Menyebut seseorang sebagai abang",
+  "Contoh Kalimat (Gayo)": "Perabang pedih we, bedne jema siara ni iabangie",
+  "Contoh Kalimat (Indonesia)": "Dia suka menyebut semua orang sebagai abang.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Kata kerja yang berarti menyebut seseorang sebagai abang.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 12,
+  "Kata (Gayo)": "berabang",
+  "Token": "ber, abang",
+  "POS Tagging": "Verba",
+  "Arti (Indonesia)": "Menyebut seseorang sebagai abang",
+  "Contoh Kalimat (Gayo)": "aku berabang ku we",
+  "Contoh Kalimat (Indonesia)": "Aku menyebutnya abang.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Kata kerja yang berarti menyebut seseorang sebagai abang.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 13,
+  "Kata (Gayo)": "berabangen",
+  "Token": "ber, abang, en",
+  "POS Tagging": "Verba",
+  "Arti (Indonesia)": "Menyebut seseorang sebagai abang",
+  "Contoh Kalimat (Gayo)": "berabangen bedne jema ku aku",
+  "Contoh Kalimat (Indonesia)": "Semua orang menyebutku abang.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Kata kerja yang berarti menyebut seseorang sebagai abang.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 14,
+  "Kata (Gayo)": "bersiabang-abangen",
+  "Token": "ber, si, abang, -, abang, en",
+  "POS Tagging": "Verba",
+  "Arti (Indonesia)": "Saling menyebut sebagai abang",
+  "Contoh Kalimat (Gayo)": "bersiabang-abagen",
+  "Contoh Kalimat (Indonesia)": "Saling menyebut abang diantara mereka",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan ketika dua orang atau lebih saling menyebut sebagai abang.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 15,
+  "Kata (Gayo)": "atas",
+  "Token": "atas",
+  "POS Tagging": "adj, adv, n",
+  "Arti (Indonesia)": "tinggi, di atas, lebih tinggi",
+  "Contoh Kalimat (Gayo)": "Ntah kite kuatas.",
+  "Contoh Kalimat (Indonesia)": "Ayo kita naik ke atas.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Bisa berarti ‘tinggi’, ‘di atas’, atau ‘lebih tinggi’ tergantung konteks.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 16,
+  "Kata (Gayo)": "atawa",
+  "Token": "atawa",
+  "POS Tagging": "conj",
+  "Arti (Indonesia)": "atau",
+  "Contoh Kalimat (Gayo)": "I rai ko pe luju mu atawa lujung ku?",
+  "Contoh Kalimat (Indonesia)": "Ambil pisaumu atau punyaku?",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan dalam pertanyaan dua pilihan.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 17,
+  "Kata (Gayo)": "ate",
+  "Token": "ate",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "hati (emosi)",
+  "Contoh Kalimat (Gayo)": "Iluahne cerak orom ate galake.",
+  "Contoh Kalimat (Indonesia)": "Disampaikannya dengan bahagia.",
+  "sumber ": "Baihaqi AK (1981)",
+  "Keterangan": "Hati sebagai simbol emosi. (positif)",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 18,
+  "Kata (Gayo)": "ate",
+  "Token": "ate",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "hati (organ tubuh)",
+  "Contoh Kalimat (Gayo)": "Ini turah itenahen ate ni akang.",
+  "Contoh Kalimat (Indonesia)": "Ini harus kita pesan hati rusa.",
+  "sumber ": "Basar (chat WA)",
+  "Keterangan": "Hati sebagai bagian organ tubuh.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 19,
+  "Kata (Gayo)": "ate we",
+  "Token": "ate, we",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "hatinya (emosi)",
+  "Contoh Kalimat (Gayo)": "Patut senang pedeh atewe.",
+  "Contoh Kalimat (Indonesia)": "Pantas senang sekali hatinya.",
+  "sumber ": "Baihaqi AK (1981)",
+  "Keterangan": "Hati sebagai simbol emosi.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 20,
+  "Kata (Gayo)": "ate we",
+  "Token": "ate, we",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "hatinya (emosi)",
+  "Contoh Kalimat (Gayo)": "Dele we jema e gere ara sara jema peh si muke ate we.",
+  "Contoh Kalimat (Indonesia)": "Begitu banyaknya orang tidak satupun yang terbuka hatinya.",
+  "sumber ": "Asriani (chat WA)",
+  "Keterangan": "Hati sebagai simbol emosi. (negatif)",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 21,
+  "Kata (Gayo)": "acam",
+  "Token": "acam",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "macam, jenis, asam (asam jawa)",
+  "Contoh Kalimat (Gayo)": "Acam lagi.",
+  "Contoh Kalimat (Indonesia)": "Pohon asam biasa.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Bentuk variasi dari \"asam\" dan \"macam\".",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 22,
+  "Kata (Gayo)": "Aceh",
+  "Token": "Aceh",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "Aceh, negeri Aceh",
+  "Contoh Kalimat (Gayo)": "Urang Aceh.",
+  "Contoh Kalimat (Indonesia)": "Orang Aceh.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk merujuk pada wilayah atau orang Aceh.",
+  "Column10": "07\/02\/2025 17:36:27"
+ },
+ {
+  "ID": 1,
+  "Kata (Gayo)": "cemburu",
+  "Token": "cemburu",
+  "POS Tagging": "adj",
+  "Arti (Indonesia)": "cemburu (terhadap pasangan), iri (terhadap orang yang lebih kaya)",
+  "Contoh Kalimat (Gayo)": "bersicemboren rawan banan",
+  "Contoh Kalimat (Indonesia)": "Suami istri saling cemburu",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan perasaan cemburu atau iri."
+ },
+ {
+  "ID": 2,
+  "Kata (Gayo)": "cemis",
+  "Token": "cemis",
+  "POS Tagging": "adv",
+  "Arti (Indonesia)": "hampir kena, nyaris terkena (dalam lemparan, tembakan, dll.)",
+  "Contoh Kalimat (Gayo)": "cemis-cemis ku letep manuk.",
+  "Contoh Kalimat (Indonesia)": "hampir-hampir kena burung ku sumpit",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Menggambarkan sesuatu yang hampir terjadi atau nyaris terkena."
+ },
+ {
+  "ID": 3,
+  "Kata (Gayo)": "cemul",
+  "Token": "cemul",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "Kotak perhiasan, biasanya berbentuk bulat dengan penutup",
+  "Contoh Kalimat (Gayo)": "cemul ku isi",
+  "Contoh Kalimat (Indonesia)": "kotak perhiasan ku dimana",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Kotak perhiasan yang biasanya disimpan dalam wadah lebih besar seperti peti atau lemari"
+ },
+ {
+  "ID": 4,
+  "Kata (Gayo)": "cemucut",
+  "Token": "cemucut",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "sejenis rumput berduri yang bijinya menempel pada pakaian",
+  "Contoh Kalimat (Gayo)": "kiset di aku tar oya meh kona cemucut",
+  "Contoh Kalimat (Indonesia)": "malas sekali saya lewat (melalui) jalan itu, banyak sekali rumput berduri melekat pada pakaian",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Rumput ini memiliki biji yang mudah menempel pada pakaian."
+ },
+ {
+  "ID": 5,
+  "Kata (Gayo)": "cemoh",
+  "Token": "cemoh",
+  "POS Tagging": "v",
+  "Arti (Indonesia)": "mencium, berciuman",
+  "Contoh Kalimat (Gayo)": "Cemohi e anake",
+  "Contoh Kalimat (Indonesia)": "dia mencium anaknya.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan tindakan mencium atau berciuman."
+ },
+ {
+  "ID": 6,
+  "Kata (Gayo)": "cempala",
+  "Token": "cempala",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "nama burung",
+  "Contoh Kalimat (Gayo)": "i letep e cempala, metuh ku arul",
+  "Contoh Kalimat (Indonesia)": "Di sumpitnya burung cempala jatuh ke sungai",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Burung ini dianggap memiliki makna spiritual dalam budaya Gayo."
+ },
+ {
+  "ID": 7,
+  "Kata (Gayo)": "cemparam",
+  "Token": "cemparam",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "jenis lintah",
+  "Contoh Kalimat (Gayo)": "Benasah budak e kona cemparam",
+  "Contoh Kalimat (Indonesia)": "Anaknya meningal disengat lintah dalam ronga hidung",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Lintah ini berbahaya jika masuk ke rongga hidung."
+ },
+ {
+  "ID": 8,
+  "Kata (Gayo)": "cempedak",
+  "Token": "cempedak",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "jenis buah-buahan",
+  "Contoh Kalimat (Gayo)": "salah perjak cempedak aka ati ne, daboh ne bir",
+  "Contoh Kalimat (Indonesia)": "tidak sengaja terinjak cempedak kaka ati, terpaksa membayar",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "sama dengan cempedak bahasa indonesia"
+ },
+ {
+  "ID": 9,
+  "Kata (Gayo)": "cemperle",
+  "Token": "cemperle",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "laron",
+  "Contoh Kalimat (Gayo)": "run ni cemperle, Kusi nyala ni lampu nge i one we",
+  "Contoh Kalimat (Indonesia)": "kerumunan laron, dimana cahaya lampu sudah sudah hadir laronnya",
+  "sumber ": "Putra Samarkhand, Facebook",
+  "Keterangan": "dalam dialek Gayo Lues disebut seserbe ."
+ },
+ {
+  "ID": 10,
+  "Kata (Gayo)": "cempege",
+  "Token": "cempege",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "tanah yang mengandung belerang",
+  "Contoh Kalimat (Gayo)": "tengah na cempege i tos jema kin isi ni anak bedil, kin uwak gatal peh nguk",
+  "Contoh Kalimat (Indonesia)": "dahulu tanah yang mengadung belerang dibuat untuk mesiu, untuk obat gatal juga bisa",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan sebagai bahan pembuat mesiu dan obat-obatan."
+ },
+ {
+  "ID": 11,
+  "Kata (Gayo)": "cengal",
+  "Token": "cengal",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "jenis pohon",
+  "Contoh Kalimat (Gayo)": "cengal oya deh kin prau te ge",
+  "Contoh Kalimat (Indonesia)": "batang cengak utu saja untuk perahu kita ya",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Pohon ini memiliki kayu yang kuat dan tahan lama."
+ },
+ {
+  "ID": 12,
+  "Kata (Gayo)": "cegang",
+  "Token": "cengang",
+  "POS Tagging": "adj",
+  "Arti (Indonesia)": "terkejut, tercengang",
+  "Contoh Kalimat (Gayo)": "emun lagu membentuk jema pecegang ku masjid bintang",
+  "Contoh Kalimat (Indonesia)": "awan seakan seperti orang tercengang melihat mesjid di kampung bintang",
+  "sumber ": "Suhaili, Facebook",
+  "Keterangan": "Menggambarkan ekspresi terkejut atau tercengang."
+ },
+ {
+  "ID": 13,
+  "Kata (Gayo)": "cengengut",
+  "Token": "cengengut",
+  "POS Tagging": "v",
+  "Arti (Indonesia)": "bergumam, menggerutu",
+  "Contoh Kalimat (Gayo)": "seliben pekerut, salak peringut, irintahen cengengut",
+  "Contoh Kalimat (Indonesia)": "kening berkerut, wajah merengut, diminta untuk berbuat sesuatu  mengerutu",
+  "sumber ": "Mahdari, SE FB",
+  "Keterangan": "Biasanya digunakan untuk menggambarkan seseorang yang sedang menggerutu atau bergumam."
+ },
+ {
+  "ID": 14,
+  "Kata (Gayo)": "rembet",
+  "Token": "rembet",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "teras rumah panggung",
+  "Contoh Kalimat (Gayo)": "Rembet ni serambi banan en rembet ni serambi rawan.",
+  "Contoh Kalimat (Indonesia)": "Bagian serambi depan rumah yang memanjang dari galeri laki-laki dan perempuan.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Merujuk pada bagian rumah tradisional Gayo."
+ },
+ {
+  "ID": 15,
+  "Kata (Gayo)": "rondeng",
+  "Token": "rondeng",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "nama sebuah dusun di hilir Pasir (Gayo Lues)",
+  "Contoh Kalimat (Gayo)": "-",
+  "Contoh Kalimat (Indonesia)": "-",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Dusun ini terletak di daerah hilir Pasir."
+ },
+ {
+  "ID": 16,
+  "Kata (Gayo)": "renyel",
+  "Token": "renyel",
+  "POS Tagging": "adv",
+  "Arti (Indonesia)": "segera, langsung, maju!",
+  "Contoh Kalimat (Gayo)": "Nge mari maan, nome renyel.",
+  "Contoh Kalimat (Indonesia)": "Setelah makan, langsung tidur.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan tindakan yang dilakukan segera atau tanpa penundaan."
+ },
+ {
+  "ID": 17,
+  "Kata (Gayo)": "reng",
+  "Token": "reng",
+  "POS Tagging": "adj",
+  "Arti (Indonesia)": "terlihat tua (dari penampilan)",
+  "Contoh Kalimat (Gayo)": "Bujang reng, een oude vrijer.",
+  "Contoh Kalimat (Indonesia)": "Seorang bujang tua (laki-laki yang sudah tua tetapi belum menikah).",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Menggambarkan penampilan seseorang yang terlihat tua."
+ },
+ {
+  "ID": 18,
+  "Kata (Gayo)": "renggel",
+  "Token": "renggel",
+  "POS Tagging": "v",
+  "Arti (Indonesia)": "menabrak, bertabrakan (secara figuratif)",
+  "Contoh Kalimat (Gayo)": "Prang merenggel, schijnoorlog of schijnaanval.",
+  "Contoh Kalimat (Indonesia)": "Perang palsu atau serangan palsu.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Biasanya digunakan dalam konteks konflik atau pertikaian."
+ },
+ {
+  "ID": 19,
+  "Kata (Gayo)": "rengka",
+  "Token": "rengka",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "kerangka rumah (tanpa atap atau dinding)",
+  "Contoh Kalimat (Gayo)": "Umah ini nge irongka.",
+  "Contoh Kalimat (Indonesia)": "Kerangka rumah ini sudah dipasang.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Merujuk pada struktur dasar rumah."
+ },
+ {
+  "ID": 20,
+  "Kata (Gayo)": "rongok",
+  "Token": "rongok",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "leher, tengkuk",
+  "Contoh Kalimat (Gayo)": "Nge metus rongoke kona tengkah.",
+  "Contoh Kalimat (Indonesia)": "Lehernya dipotong.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk merujuk pada bagian tubuh leher atau tengkuk."
+ },
+ {
+  "ID": 21,
+  "Kata (Gayo)": "ropa",
+  "Token": "ropa",
+  "POS Tagging": "v",
+  "Arti (Indonesia)": "berbaring telungkup",
+  "Contoh Kalimat (Gayo)": "Aku musentat meropa.",
+  "Contoh Kalimat (Indonesia)": "Aku terjatuh dan berbaring telungkup.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Menggambarkan posisi berbaring dengan perut di bawah."
+ },
+ {
+  "ID": 22,
+  "Kata (Gayo)": "a",
+  "Token": "a",
+  "POS Tagging": "interj",
+  "Arti (Indonesia)": "kata seru untuk menyatakan persetujuan atau penegasan",
+  "Contoh Kalimat (Gayo)": "Ike beta? — A, beta le.",
+  "Contoh Kalimat (Indonesia)": "Apakah begitu? — Ya, begitu.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan sebagai kata seru untuk menegaskan sesuatu."
+ },
+ {
+  "ID": 23,
+  "Kata (Gayo)": "abang",
+  "Token": "abang",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "kakak laki-laki (baik kandung maupun sepupu)",
+  "Contoh Kalimat (Gayo)": "Ari si abang.",
+  "Contoh Kalimat (Indonesia)": "Dari mana kakak laki-laki?",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyebut kakak laki-laki, baik kandung maupun sepupu."
+ },
+ {
+  "ID": 24,
+  "Kata (Gayo)": "adji",
+  "Token": "adji",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "seseorang yang telah menunaikan haji",
+  "Contoh Kalimat (Gayo)": "Blöh koe (h)adji.",
+  "Contoh Kalimat (Indonesia)": "Pergi haji.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Merujuk pada orang yang telah menunaikan ibadah haji."
+ },
+ {
+  "ID": 25,
+  "Kata (Gayo)": "adoeh",
+  "Token": "adoeh",
+  "POS Tagging": "interj",
+  "Arti (Indonesia)": "kata seru untuk menyatakan rasa senang atau sakit",
+  "Contoh Kalimat (Gayo)": "Adoeh těmasé.",
+  "Contoh Kalimat (Indonesia)": "Wah, enak sekali!",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk mengekspresikan perasaan senang atau sakit."
+ },
+ {
+  "ID": 26,
+  "Kata (Gayo)": "aèr",
+  "Token": "aèr",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "air",
+  "Contoh Kalimat (Gayo)": "Aèr masin.",
+  "Contoh Kalimat (Indonesia)": "Air asin (air laut).",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan dalam beberapa kata majemuk."
+ },
+ {
+  "ID": 27,
+  "Kata (Gayo)": "agak",
+  "Token": "agak",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "perkiraan, tebakan",
+  "Contoh Kalimat (Gayo)": "Agakkoe görö oerön sěrělō ini.",
+  "Contoh Kalimat (Indonesia)": "Aku tidak yakin apakah hari ini akan hujan.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan perkiraan atau tebakan."
+ },
+ {
+  "ID": 28,
+  "Kata (Gayo)": "abang-abang",
+  "Token": "abang-abang",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "sejenis pohon yang kayunya digunakan untuk membuat arang",
+  "Contoh Kalimat (Gayo)": "-",
+  "Contoh Kalimat (Indonesia)": "-",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Pohon ini memiliki kayu yang baik untuk pembuatan arang."
+ },
+ {
+  "ID": 29,
+  "Kata (Gayo)": "aboen",
+  "Token": "aboen",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "syarat, batasan",
+  "Contoh Kalimat (Gayo)": "Běraboen, zulk een voorwaarde stellen.",
+  "Contoh Kalimat (Indonesia)": "Menetapkan syarat tertentu.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan syarat atau batasan."
+ },
+ {
+  "ID": 30,
+  "Kata (Gayo)": "adan",
+  "Token": "adan",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "panggilan untuk salat",
+  "Contoh Kalimat (Gayo)": "-",
+  "Contoh Kalimat (Indonesia)": "-",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Merujuk pada panggilan untuk melaksanakan salat."
+ },
+ {
+  "ID": 31,
+  "Kata (Gayo)": "adi",
+  "Token": "adi",
+  "POS Tagging": "adv",
+  "Arti (Indonesia)": "daripada, tapi",
+  "Contoh Kalimat (Gayo)": "Adih akoe kōIön kō.",
+  "Contoh Kalimat (Indonesia)": "Daripada aku, kamu lebih besar.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk membandingkan atau menyatakan kontras."
+ },
+ {
+  "ID": 32,
+  "Kata (Gayo)": "adil",
+  "Token": "adil",
+  "POS Tagging": "adj",
+  "Arti (Indonesia)": "adil, fair",
+  "Contoh Kalimat (Gayo)": "Rödjö adil.",
+  "Contoh Kalimat (Indonesia)": "Raja yang adil.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Menggambarkan sifat adil atau fair."
+ },
+ {
+  "ID": 33,
+  "Kata (Gayo)": "agama",
+  "Token": "agama",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "agama",
+  "Contoh Kalimat (Gayo)": "Agama Islam.",
+  "Contoh Kalimat (Indonesia)": "Agama Islam.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Merujuk pada sistem kepercayaan atau agama."
+ },
+ {
+  "ID": 34,
+  "Kata (Gayo)": "agih",
+  "Token": "agih",
+  "POS Tagging": "adj",
+  "Arti (Indonesia)": "cukup, pas",
+  "Contoh Kalimat (Gayo)": "Agih lö òja.",
+  "Contoh Kalimat (Indonesia)": "Itu sudah cukup.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan sesuatu yang cukup atau pas."
+ },
+ {
+  "ID": 35,
+  "Kata (Gayo)": "aging",
+  "Token": "aging",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "sejenis pohon dengan kayu keras",
+  "Contoh Kalimat (Gayo)": "-",
+  "Contoh Kalimat (Indonesia)": "-",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Kayunya digunakan untuk membuat gasing."
+ },
+ {
+  "ID": 36,
+  "Kata (Gayo)": "agoesön",
+  "Token": "agoesön",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "nama sebuah gunung di perbatasan Gayo Lues dan Alas",
+  "Contoh Kalimat (Gayo)": "-",
+  "Contoh Kalimat (Indonesia)": "-",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Gunung ini menjadi batas antara Gayo Lues dan Alas."
+ },
+ {
+  "ID": 37,
+  "Kata (Gayo)": "ah",
+  "Token": "ah",
+  "POS Tagging": "interj",
+  "Arti (Indonesia)": "kata seru untuk menyatakan rasa kagum atau heran",
+  "Contoh Kalimat (Gayo)": "Ah těmasé.",
+  "Contoh Kalimat (Indonesia)": "Wah, enak sekali!",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk mengekspresikan kekaguman atau keheran."
+ },
+ {
+  "ID": 38,
+  "Kata (Gayo)": "ahal",
+  "Token": "ahal",
+  "POS Tagging": "adv",
+  "Arti (Indonesia)": "memang, benar-benar",
+  "Contoh Kalimat (Gayo)": "Ngi moe ahal.",
+  "Contoh Kalimat (Indonesia)": "Itu memang adikmu.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menegaskan kebenaran sesuatu."
+ },
+ {
+  "ID": 39,
+  "Kata (Gayo)": "aing",
+  "Token": "aing",
+  "POS Tagging": "interj",
+  "Arti (Indonesia)": "tiruan suara hewan yang kesakitan",
+  "Contoh Kalimat (Gayo)": "-",
+  "Contoh Kalimat (Indonesia)": "-",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Biasanya digunakan untuk menirukan suara hewan yang sedang kesakitan."
+ },
+ {
+  "ID": 40,
+  "Kata (Gayo)": "ajak",
+  "Token": "ajak",
+  "POS Tagging": "v",
+  "Arti (Indonesia)": "menabur, menyebar",
+  "Contoh Kalimat (Gayo)": "Najak djěmoer koe wan alas.",
+  "Contoh Kalimat (Indonesia)": "Menabur beras di atas tikar.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan tindakan menabur atau menyebar."
+ },
+ {
+  "ID": 41,
+  "Kata (Gayo)": "awang-awang",
+  "Token": "awang-awang",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "langit, udara",
+  "Contoh Kalimat (Gayo)": "Ipěnipié rěmalan iatan awang2.",
+  "Contoh Kalimat (Indonesia)": "Dia bermimpi berjalan di langit.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Merujuk pada langit atau udara."
+ },
+ {
+  "ID": 42,
+  "Kata (Gayo)": "awar",
+  "Token": "awar",
+  "POS Tagging": "n",
+  "Arti (Indonesia)": "wabah, epidemi",
+  "Contoh Kalimat (Gayo)": "Imöi (h)awar mikö.",
+  "Contoh Kalimat (Indonesia)": "Semoga wabah menjauh darimu.",
+  "sumber ": "Hazeu (1907)",
+  "Keterangan": "Digunakan untuk menyatakan wabah atau epidemi."
+ },
+ {
+  "ID": 43
+ },
+ {
+  "ID": 44
+ },
+ {
+  "ID": 45
+ },
+ {
+  "ID": 46
+ },
+ {
+  "ID": 47
+ },
+ {
+  "ID": 48
+ },
+ {
+  "ID": 49
+ },
+ {
+  "ID": 50
+ },
+ {
+  "ID": 51
+ },
+ {
+  "ID": 52
+ },
+ {
+  "ID": 53
+ },
+ {
+  "ID": 54
+ },
+ {
+  "ID": 55
+ },
+ {
+  "ID": 56
+ },
+ {
+  "ID": 57
+ },
+ {
+  "ID": 58
+ },
+ {
+  "ID": 59
+ },
+ {
+  "ID": 60
+ },
+ {
+  "ID": 61
+ },
+ {
+  "ID": 62
+ },
+ {
+  "ID": 63
+ },
+ {
+  "ID": 64
+ },
+ {
+  "ID": 65
+ },
+ {
+  "ID": 66
+ },
+ {
+  "ID": 67
+ }
+]
+}
