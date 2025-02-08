@@ -19,4 +19,20 @@ Sumber :
 
 Untuk memperkaya khazanah ada pula sumber yang diambil dari berbagai sosial media seperti Facebook dan group Whatsapp. Sekiranya ada yang berkeberatan kalimatnya kami gunakan untuk melengkapi bahan-bahan korpus ini kami persilahkan untuk memberi tahu kami
 
-Korpus ini masih belum lengkap, untuk phonetict transkrip belum dapat kami susun
+Korpus ini masih belum lengkap, untuk phonetict transkrip (tulisan fonotik) belum dapat kami susun
+
+Langkah Pengerjaan : 
+A. mengumpulkan kalimat dari berbagai sumber 
+Di utamakan dari sumber-sumber tertulis seperti buku, lirik lagu, syair didong, melengkan, puisi dll, sumber kedua berasal dari sosial media di usahakan sumber-sumber yang beragam.
+
+B.Normalisasi Kalimat tahap 1
+- selain nama tempat, nama orang huruf kapital dirubah menjadi huruf kecil
+- memperbaiki salah ketik
+- menghapus kata-kata selain bahasa Gayo, kecuali mempengaruhi makna kalimat secara keseluruhan, misal : 'enti ara nyerah tekek pe kite demi rakyat banyak' kata 'nyerah' (bhs. Indonesia) dipertahankan karena mempengaruhi makna kalimat, tapi 'kalimat demi rayat banyak' dihapus semua.kalimat ini untuk mengambarkan penggunaan kata 'enti' dalam kalimat
+
+C.Normalisasi Kalimat tahap 2
+- setiap kalimat di potong-potong menjadi kata kemudian ditabulasi
+- setiap kalimat dihubungkan dengan contoh pemakaian dalam kalimat
+- perbaikan salah ketik, huruf besar, tanda baca yang tidak perlu dihapus atau diperbaiki
+- meminimalkan kata yang bukan bahasa Gayo kecuali mempengaruhi konteks kalimat
+- menambah keterangan, misal jaman dulu kata yang lazin digunakan untuk menyatakan 'semua' adalah 'bedne', namun sekarang berubah menjadi bewene. tujuannya jika nanti ada yang melakukan penelitian tentang perubahan pola bahasa atau sejerah tetap dapat memanfaatkan aplikasi ini 
