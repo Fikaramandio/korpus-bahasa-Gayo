@@ -40,4 +40,6 @@ C.Normalisasi Kalimat tahap 2
 - setiap kalimat dihubungkan dengan contoh pemakaian dalam kalimat
 - perbaikan salah ketik, huruf besar, tanda baca yang tidak perlu dihapus atau diperbaiki
 - meminimalkan kata yang bukan bahasa Gayo kecuali mempengaruhi konteks kalimat
-- menambah keterangan, misal jaman dulu kata yang lazin digunakan untuk menyatakan 'semua' adalah 'bedne', namun sekarang berubah menjadi bewene. tujuannya jika nanti ada yang melakukan penelitian tentang perubahan pola bahasa atau sejerah tetap dapat memanfaatkan aplikasi ini 
+- menambah keterangan, misal jaman dulu kata yang lazin digunakan untuk menyatakan 'semua' adalah 'bedne', namun sekarang berubah menjadi bewene. tujuannya jika nanti ada yang melakukan penelitian tentang perubahan pola bahasa atau sejerah tetap dapat memanfaatkan aplikasi ini
+
+D. untuk kata yang salah ketik dimasukan dalam tabel khusus yang diberi nama 'Kamus Slank' kamus ini bukan hanya berisi typo, tapi juga singkatan yang lazim digunakan
