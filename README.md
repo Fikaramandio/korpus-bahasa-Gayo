@@ -13,16 +13,21 @@ Korpus ini terdiri dari
 
 Sumber :
 [1] Hazeu, GAJ (1907) Gajosch - Nederlandsch Wordenboek
+
 [2] Eades, Domenyk (2005) A grammar of Gayo: a language of Aceh, Sumatra
+
 [3] AK, Baihaqi (1981), Bahasa Gayo
+
 [4] Idris, Ibrahim (1984) Sistem Perulangan Bahasa Gayo
+
+[
 
 Untuk memperkaya khazanah ada pula sumber yang diambil dari berbagai sosial media seperti Facebook dan group Whatsapp. Sekiranya ada yang berkeberatan kalimatnya kami gunakan untuk melengkapi bahan-bahan korpus ini kami persilahkan untuk memberi tahu kami
 
 Korpus ini masih belum lengkap, untuk phonetict transkrip (tulisan fonotik) belum dapat kami susun
 
 Langkah Pengerjaan : 
-A. mengumpulkan kalimat dari berbagai sumber 
+A. mengumpulkan kalimat dari berbagai sumber lihat [file Korpus_Gayo mentah]
 Di utamakan dari sumber-sumber tertulis seperti buku, lirik lagu, syair didong, melengkan, puisi dll, sumber kedua berasal dari sosial media di usahakan sumber-sumber yang beragam.
 
 B.Normalisasi Kalimat tahap 1
