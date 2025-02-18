@@ -12,7 +12,9 @@ Korpus ini terdiri dari
 - Keterangan
 
 Sumber :
-[1] Hazeu, GAJ (1907) Gajosch - Nederlandsch Wordenboek
+[1] Hazeu, GAJ (1907) Gajosch - Nederlandsch Wordenboek. terjemahan kamus ini dalam bahasa Indonesia dapat dilihat pada file hazeu-indonesia. 
+sebagian isi dari file ini masih dipertahankan dalam bentuk ejaan lama, seperti oe untuk u, dj untuk j dsb. ada beberapa kata yang tidak diketahui lagi artinya akan tetap dibiarkan sebagaimana aslinya agar dapat digunakan untuk penelitian lebih lanjut bagi yang berminat untuk mempelajari bahasa Gayo dan sejarahnya
+Meskipun dalam file ini diusahakan untuk memuat seluruh hasil terjemahan secara lengkap, namun ada beberapa bagian file yang akan dipisahkan dalam file tersendiri untuk yang terkait dengan morfologi. 
 
 [2] Eades, Domenyk (2005) A grammar of Gayo: a language of Aceh, Sumatra
 
@@ -30,12 +32,12 @@ Langkah Pengerjaan :
 A. mengumpulkan kalimat dari berbagai sumber lihat [file Korpus_Gayo mentah]
 Di utamakan dari sumber-sumber tertulis seperti buku, lirik lagu, syair didong, melengkan, puisi dll, sumber kedua berasal dari sosial media di usahakan sumber-sumber yang beragam.
 
-B.Normalisasi Kalimat tahap 1
+B. Normalisasi Kalimat tahap 1
 - selain nama tempat, nama orang huruf kapital dirubah menjadi huruf kecil
 - memperbaiki salah ketik
 - menghapus kata-kata selain bahasa Gayo, kecuali mempengaruhi makna kalimat secara keseluruhan, misal : 'enti ara nyerah tekek pe kite demi rakyat banyak' kata 'nyerah' (bhs. Indonesia) dipertahankan karena mempengaruhi makna kalimat, tapi 'kalimat demi rayat banyak' dihapus semua.kalimat ini untuk mengambarkan penggunaan kata 'enti' dalam kalimat
 
-C.Normalisasi Kalimat tahap 2
+C. Normalisasi Kalimat tahap 2
 - setiap kalimat di potong-potong menjadi kata kemudian ditabulasi
 - setiap kalimat dihubungkan dengan contoh pemakaian dalam kalimat
 - perbaikan salah ketik, huruf besar, tanda baca yang tidak perlu dihapus atau diperbaiki
