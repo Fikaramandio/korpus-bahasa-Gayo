@@ -12,15 +12,13 @@ Korpus ini terdiri dari
 - Keterangan
 
 Sumber :
-[1] Hazeu, GAJ (1907) Gajosch - Nederlandsch Wordenboek. terjemahan kamus ini dalam bahasa Indonesia dapat dilihat pada file hazeu-indonesia. 
-sebagian isi dari file ini masih dipertahankan dalam bentuk ejaan lama, seperti oe untuk u, dj untuk j dsb. ada beberapa kata yang tidak diketahui lagi artinya akan tetap dibiarkan sebagaimana aslinya agar dapat digunakan untuk penelitian lebih lanjut bagi yang berminat untuk mempelajari bahasa Gayo dan sejarahnya
-Meskipun dalam file ini diusahakan untuk memuat seluruh hasil terjemahan secara lengkap, namun ada beberapa bagian file yang akan dipisahkan dalam file tersendiri untuk yang terkait dengan morfologi. 
+- [1] Hazeu, GAJ (1907) Gajosch - Nederlandsch Wordenboek. terjemahan kamus ini dalam bahasa Indonesia dapat dilihat pada [📖 Wiki Projek](https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki)
+. 
+- [2] Eades, Domenyk (2005) A grammar of Gayo: a language of Aceh, Sumatra
 
-[2] Eades, Domenyk (2005) A grammar of Gayo: a language of Aceh, Sumatra
+- [3] AK, Baihaqi (1981), Bahasa Gayo
 
-[3] AK, Baihaqi (1981), Bahasa Gayo
-
-[4] Idris, Ibrahim (1984) Sistem Perulangan Bahasa Gayo
+- [4] Idris, Ibrahim (1984) Sistem Perulangan Bahasa Gayo
 
 [
 
