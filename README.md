@@ -7,7 +7,7 @@ Korpus ini terdiri dari
 - Tokenisasi
 - POS Tagging
 - Contoh kalimat dalam bahasa Gayo
-- Aryi kalimat dalam bahasa Indonesia
+- Arti kalimat dalam bahasa Indonesia
 - Sumber
 - Keterangan
 
