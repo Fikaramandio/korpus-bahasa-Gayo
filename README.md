@@ -43,3 +43,23 @@ C. Normalisasi Kalimat tahap 2
 - menambah keterangan, misal jaman dulu kata yang lazin digunakan untuk menyatakan 'semua' adalah 'bedne', namun sekarang berubah menjadi bewene. tujuannya jika nanti ada yang melakukan penelitian tentang perubahan pola bahasa atau sejerah tetap dapat memanfaatkan aplikasi ini
 
 D. untuk kata yang salah ketik dimasukan dalam tabel khusus yang diberi nama 'Kamus Slank' kamus ini bukan hanya berisi typo, tapi juga singkatan yang lazim digunakan
+
+---
+
+## 🚀 Deployment ke Hugging Face Spaces
+
+Aplikasi ini sudah siap deploy ke Hugging Face Spaces:
+
+1. **File yang diperlukan:**
+   - `app.py` - Web interface menggunakan Gradio
+   - `requirements.txt` - Dependencies
+   - Repository ini sudah include semua file yang diperlukan
+
+2. **Cara deploy:**
+   - Buka [Hugging Face Spaces](https://huggingface.co/spaces)
+   - Pilih "Create new Space"
+   - Pilih repo ini sebagai source
+   - Space akan auto-deploy
+
+3. **Live Demo:**
+   [Link ke Hugging Face Space akan muncul di sini]
