@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamus Bahasa Gayo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-book"></i> Kamus Bahasa Gayo</h1>
+            <p>Kamus Gayo-Indonesia | Sumber: Hazeu (1907)</p>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Cari kata dalam bahasa Gayo atau Indonesia..." autofocus>
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filter-container">
+                <select id="filterKelas">
+                    <option value="all">Semua Kelas Kata</option>
+                    <option value="nomina">Nomina (Kata Benda)</option>
+                    <option value="verba">Verba (Kata Kerja)</option>
+                    <option value="adjektiva">Adjektiva (Kata Sifat)</option>
+                    <option value="konjungsi">Konjungsi</option>
+                </select>
+                <select id="filterStatus">
+                    <option value="all">Semua Status</option>
+                    <option value="lengkap">Lengkap</option>
+                    <option value="sebagian">Sebagian</option>
+                </select>
+                <span id="resultCount">0 entri ditemukan</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="welcomeSection">
+                <h2>Selamat Datang!</h2>
+                <p>Kamus ini berisi <strong id="totalEntries">0</strong> entri dari bahasa Gayo.</p>
+                <p>Mulai ketik di kotak pencarian di atas untuk mencari kata.</p>
+            </div>
+            <div id="resultsSection" style="display: none;">
+                <div id="entriesContainer"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Dibangun dari <a href="https://github.com/Fikaramandio/korpus-bahasa-Gayo" target="_blank">Korpus Bahasa Gayo</a> | Data: Hazeu (1907)</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

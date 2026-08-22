@@ -1,0 +1,10 @@
+{
+  "total_halaman": 3,
+  "entri_kamus": 2,
+  "bukan_kamus": 1,
+  "status": {
+    "lengkap": 0,
+    "sebagian": 2,
+    "perlu_verifikasi": 0
+  }
+}
