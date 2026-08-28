@@ -36,23 +36,27 @@ function renderEntry(entry, query = '') {
     const header = document.createElement('div');
     header.className = 'entry-header';
 
-    // Buat link ke GitHub Wiki
-    const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
-    
-    let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="text-decoration: none; color: inherit;">${highlightText(entry.kata, query)}</a></span>`;
-    if (entry.ejaan_alternatif) {
-        kataHtml += ` <span class="ejaan-alternatif">(${highlightText(entry.ejaan_alternatif, query)})</span>`;
-    }
-    if (entry.suku_kata) {
-        kataHtml += ` <span class="suku-kata">${highlightText(entry.suku_kata, query)}</span>`;
-    }
-    if (entry.kelas_kata) {
-        kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
-    }
-    // Tambahkan ikon link
-    kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.8rem; color: #1a73e8; text-decoration: none; margin-left: 5px;">🔗</a>`;
-    header.innerHTML = kataHtml;
-    card.appendChild(header);
+    // Header dengan link ke GitHub Wiki
+const header = document.createElement('div');
+header.className = 'entry-header';
+
+// Buat link ke GitHub Wiki
+const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
+
+let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="color: #1a73e8; text-decoration: none; font-weight: bold;">${highlightText(entry.kata, query)}</a></span>`;
+if (entry.ejaan_alternatif) {
+    kataHtml += ` <span class="ejaan-alternatif">(${highlightText(entry.ejaan_alternatif, query)})</span>`;
+}
+if (entry.suku_kata) {
+    kataHtml += ` <span class="suku-kata">${highlightText(entry.suku_kata, query)}</span>`;
+}
+if (entry.kelas_kata) {
+    kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
+}
+// Tambahkan ikon link yang lebih jelas
+kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.9rem; color: #1a73e8; text-decoration: none; margin-left: 5px; background: #e8f0fe; padding: 2px 6px; border-radius: 4px;">🔗 Wiki</a>`;
+header.innerHTML = kataHtml;
+card.appendChild(header);
 
     // Makna
     if (entry.makna && entry.makna.length > 0) {
