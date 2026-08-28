@@ -2,8 +2,23 @@
 const DATA_URL = 'data/kamus.json';
 
 // --- Data Inline (untuk mode tanpa server) ---
+// Tempelkan isi file data/kamus_terstruktur_with_tags.json di sini
 window.inlineData = [
-  // Tempelkan data kamus di sini jika diperlukan
+  // ========== TEMPELKAN DATA KAMUS DI SINI ==========
+  // Contoh:
+  // {
+  //   "kata": "Belgong",
+  //   "ejaan_alternatif": "bĕlgong",
+  //   "suku_kata": "bĕ·le·gong / bĕl·gong",
+  //   "kelas_kata": "nomina",
+  //   "makna": ["Kalung, biasanya terbuat dari manik-manik..."],
+  //   "contoh": ["Disebut secara definisional..."],
+  //   "catatan": "Sebagai barang impor...",
+  //   "sumber": "Hazeu (1907)",
+  //   "status": "lengkap",
+  //   "topik": ["budaya", "perhiasan"]
+  // },
+  // ===================================================
 ];
 
 // --- State ---
@@ -15,6 +30,7 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const filterKelas = document.getElementById('filterKelas');
 const filterStatus = document.getElementById('filterStatus');
+const filterTopik = document.getElementById('filterTopik');
 const resultCount = document.getElementById('resultCount');
 const entriesContainer = document.getElementById('entriesContainer');
 const welcomeSection = document.getElementById('welcomeSection');
@@ -22,36 +38,10 @@ const resultsSection = document.getElementById('resultsSection');
 const totalEntries = document.getElementById('totalEntries');
 
 // --- Utility Functions ---
-function normalizeText(text) {
-    return text.toLowerCase().replace(/[^a-z0-9]/g, '');
-}
-
 function highlightText(text, query) {
-    if (!query || !text) return text;
+    if (!query) return text;
     const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-    return text.replace(regex, '<mark class="highlight">$1</mark>');
-}
-
-// === FUNGSI BARU: Buat cuplikan teks ===
-function getSnippet(text, query, maxLength = 120) {
-    if (!query || !text) return text;
-    const lowerText = text.toLowerCase();
-    const lowerQuery = query.toLowerCase();
-    const index = lowerText.indexOf(lowerQuery);
-    if (index === -1) {
-        // Jika tidak ditemukan, tampilkan awal teks
-        return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
-    }
-    
-    const start = Math.max(0, index - 40);
-    const end = Math.min(text.length, index + query.length + 40);
-    let snippet = text.slice(start, end);
-    
-    // Tambahkan elipsis jika dipotong
-    if (start > 0) snippet = '...' + snippet;
-    if (end < text.length) snippet = snippet + '...';
-    
-    return highlightText(snippet, query);
+    return text.replace(regex, '<mark>$1</mark>');
 }
 
 // --- Render Functions ---
@@ -59,7 +49,7 @@ function renderEntry(entry, query = '') {
     const card = document.createElement('div');
     card.className = 'entry-card';
 
-    // === HEADER (sudah pakai highlight) ===
+    // Header
     const header = document.createElement('div');
     header.className = 'entry-header';
     
@@ -76,56 +66,43 @@ function renderEntry(entry, query = '') {
     header.innerHTML = kataHtml;
     card.appendChild(header);
 
-    // === MAKNA (dengan snippet + highlight) ===
+    // Makna
     if (entry.makna && entry.makna.length > 0) {
         const maknaDiv = document.createElement('div');
         maknaDiv.className = 'entry-makna';
-        
-        // Tampilkan makna lengkap dengan highlight
-        const maknaHTML = entry.makna.map(m => {
-            // Jika ada query, tampilkan snippet yang lebih pendek untuk makna panjang
-            if (query && m.length > 100) {
-                return `<p>${getSnippet(m, query, 150)}</p>`;
-            }
-            return `<p>${highlightText(m, query)}</p>`;
-        }).join('');
-        maknaDiv.innerHTML = maknaHTML;
+        maknaDiv.innerHTML = entry.makna.map(m => `<p>${highlightText(m, query)}</p>`).join('');
         card.appendChild(maknaDiv);
     }
 
-    // === CONTOH (dengan highlight) ===
+    // Contoh
     if (entry.contoh && entry.contoh.length > 0) {
         const contohDiv = document.createElement('div');
         contohDiv.className = 'entry-contoh';
         const label = document.createElement('span');
         label.className = 'label';
-        label.textContent = '📝 Contoh: ';
+        label.textContent = 'Contoh: ';
         contohDiv.appendChild(label);
-        
-        const contohHTML = entry.contoh.map(c => 
-            `<p>${highlightText(c, query)}</p>`
-        ).join('');
-        contohDiv.innerHTML += contohHTML;
+        contohDiv.innerHTML += entry.contoh.map(c => `<p>${highlightText(c, query)}</p>`).join('');
         card.appendChild(contohDiv);
     }
 
-    // === CATATAN (dengan highlight) ===
+    // Catatan
     if (entry.catatan) {
         const catatanDiv = document.createElement('div');
         catatanDiv.className = 'entry-catatan';
-        catatanDiv.innerHTML = `<span class="label">📌 Catatan:</span> ${highlightText(entry.catatan, query)}`;
+        catatanDiv.innerHTML = `<span class="label">Catatan:</span> ${highlightText(entry.catatan, query)}`;
         card.appendChild(catatanDiv);
     }
 
-    // === SUMBER ===
-    if (entry.sumber) {
-        const sumberDiv = document.createElement('div');
-        sumberDiv.className = 'entry-sumber';
-        sumberDiv.innerHTML = `<span class="label">📖 Sumber:</span> ${highlightText(entry.sumber, query)}`;
-        card.appendChild(sumberDiv);
+    // Topik / Tag
+    if (entry.topik && entry.topik.length > 0) {
+        const topikDiv = document.createElement('div');
+        topikDiv.className = 'entry-topik';
+        topikDiv.innerHTML = entry.topik.map(t => `<span class="tag">${t}</span>`).join(' ');
+        card.appendChild(topikDiv);
     }
 
-    // === STATUS ===
+    // Status
     const statusSpan = document.createElement('span');
     statusSpan.className = `entry-status ${entry.status || 'sebagian'}`;
     statusSpan.textContent = entry.status || 'sebagian';
@@ -148,22 +125,6 @@ function renderResults(data, query = '') {
         return;
     }
 
-    // === TAMBAHAN: Tampilkan kata kunci yang dicari ===
-    if (query) {
-        const infoDiv = document.createElement('div');
-        infoDiv.style.cssText = `
-            background: #f0f7ff;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 0.95rem;
-            border-left: 4px solid #3498db;
-        `;
-        infoDiv.innerHTML = `🔍 Menampilkan <strong>${data.length}</strong> entri yang mengandung kata "<strong>${query}</strong>" di seluruh teks (makna, contoh, catatan, dll.)`;
-        entriesContainer.appendChild(infoDiv);
-    }
-
     data.forEach(entry => {
         const card = renderEntry(entry, query);
         entriesContainer.appendChild(card);
@@ -175,10 +136,11 @@ function applyFilters() {
     const query = searchInput.value.trim();
     const kelas = filterKelas.value;
     const status = filterStatus.value;
+    const topik = filterTopik.value;
 
     let results = kamusData;
 
-    // Filter berdasarkan teks (SUDAH FULL-TEXT SEARCH)
+    // Filter berdasarkan teks (kata kunci di semua field)
     if (query) {
         const searchTerm = query.toLowerCase();
         results = results.filter(entry => {
@@ -190,10 +152,17 @@ function applyFilters() {
                 ...(entry.makna || []),
                 ...(entry.contoh || []),
                 entry.catatan,
-                entry.sumber
+                ...(entry.topik || [])
             ].filter(Boolean);
             return searchFields.some(field => field.toLowerCase().includes(searchTerm));
         });
+    }
+
+    // Filter berdasarkan topik
+    if (topik !== 'all') {
+        results = results.filter(entry => 
+            entry.topik && entry.topik.includes(topik)
+        );
     }
 
     // Filter berdasarkan kelas kata
@@ -262,13 +231,13 @@ searchInput.addEventListener('keypress', (e) => {
 searchButton.addEventListener('click', applyFilters);
 filterKelas.addEventListener('change', applyFilters);
 filterStatus.addEventListener('change', applyFilters);
+filterTopik.addEventListener('change', applyFilters);
 
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
 });
 
-// Console info
 console.log('🔍 Kamus Bahasa Gayo loaded.');
 console.log('📖 Sumber: Hazeu (1907)');
-console.log('💡 Fitur pencarian mencakup seluruh teks (makna, contoh, catatan, dll.)');
+console.log('💡 Gunakan kotak pencarian untuk mencari kata.');
