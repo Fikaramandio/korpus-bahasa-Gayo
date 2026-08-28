@@ -112,7 +112,12 @@ function renderEntry(entry, query = '') {
 }
 
 function renderResults(data, query = '') {
+    // Kosongkan container
     entriesContainer.innerHTML = '';
+
+    // Sembunyikan welcome section, tampilkan results section
+    welcomeSection.style.display = 'none';
+    resultsSection.style.display = 'block';
 
     if (data.length === 0) {
         entriesContainer.innerHTML = `
@@ -125,6 +130,7 @@ function renderResults(data, query = '') {
         return;
     }
 
+    // Tampilkan setiap entri
     data.forEach(entry => {
         const card = renderEntry(entry, query);
         entriesContainer.appendChild(card);
