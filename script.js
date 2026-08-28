@@ -32,33 +32,29 @@ function renderEntry(entry, query = '') {
     const card = document.createElement('div');
     card.className = 'entry-card';
 
-    // Header dengan link ke GitHub Wiki
+    // --- Header dengan link ke GitHub Wiki ---
     const header = document.createElement('div');
     header.className = 'entry-header';
 
-    // Header dengan link ke GitHub Wiki
-const header = document.createElement('div');
-header.className = 'entry-header';
+    // Buat link ke GitHub Wiki
+    const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
 
-// Buat link ke GitHub Wiki
-const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
+    let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="color: #1a73e8; text-decoration: none; font-weight: bold;">${highlightText(entry.kata, query)}</a></span>`;
+    if (entry.ejaan_alternatif) {
+        kataHtml += ` <span class="ejaan-alternatif">(${highlightText(entry.ejaan_alternatif, query)})</span>`;
+    }
+    if (entry.suku_kata) {
+        kataHtml += ` <span class="suku-kata">${highlightText(entry.suku_kata, query)}</span>`;
+    }
+    if (entry.kelas_kata) {
+        kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
+    }
+    // Tambahkan ikon link yang lebih jelas
+    kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.9rem; color: #1a73e8; text-decoration: none; margin-left: 5px; background: #e8f0fe; padding: 2px 6px; border-radius: 4px;">🔗 Wiki</a>`;
+    header.innerHTML = kataHtml;
+    card.appendChild(header);
 
-let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="color: #1a73e8; text-decoration: none; font-weight: bold;">${highlightText(entry.kata, query)}</a></span>`;
-if (entry.ejaan_alternatif) {
-    kataHtml += ` <span class="ejaan-alternatif">(${highlightText(entry.ejaan_alternatif, query)})</span>`;
-}
-if (entry.suku_kata) {
-    kataHtml += ` <span class="suku-kata">${highlightText(entry.suku_kata, query)}</span>`;
-}
-if (entry.kelas_kata) {
-    kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
-}
-// Tambahkan ikon link yang lebih jelas
-kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.9rem; color: #1a73e8; text-decoration: none; margin-left: 5px; background: #e8f0fe; padding: 2px 6px; border-radius: 4px;">🔗 Wiki</a>`;
-header.innerHTML = kataHtml;
-card.appendChild(header);
-
-    // Makna
+    // --- Makna ---
     if (entry.makna && entry.makna.length > 0) {
         const maknaDiv = document.createElement('div');
         maknaDiv.className = 'entry-makna';
@@ -66,7 +62,7 @@ card.appendChild(header);
         card.appendChild(maknaDiv);
     }
 
-    // Contoh
+    // --- Contoh ---
     if (entry.contoh && entry.contoh.length > 0) {
         const contohDiv = document.createElement('div');
         contohDiv.className = 'entry-contoh';
@@ -78,7 +74,7 @@ card.appendChild(header);
         card.appendChild(contohDiv);
     }
 
-    // Catatan
+    // --- Catatan ---
     if (entry.catatan) {
         const catatanDiv = document.createElement('div');
         catatanDiv.className = 'entry-catatan';
@@ -86,19 +82,13 @@ card.appendChild(header);
         card.appendChild(catatanDiv);
     }
 
-    // Topik / Tag
+    // --- Topik / Tag ---
     if (entry.topik && entry.topik.length > 0) {
         const topikDiv = document.createElement('div');
         topikDiv.className = 'entry-topik';
         topikDiv.innerHTML = entry.topik.map(t => `<span class="tag">${t}</span>`).join(' ');
         card.appendChild(topikDiv);
     }
-
-    // Status - HAPUS! (tidak ditampilkan)
-    // const statusSpan = document.createElement('span');
-    // statusSpan.className = `entry-status ${entry.status || 'sebagian'}`;
-    // statusSpan.textContent = entry.status || 'sebagian';
-    // card.appendChild(statusSpan);
 
     return card;
 }
