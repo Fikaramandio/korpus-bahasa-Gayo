@@ -33,10 +33,9 @@ function renderEntry(entry, query = '') {
     card.className = 'entry-card';
 
     // --- Header dengan link ke GitHub Wiki ---
-    const header = document.createElement('div');
-    header.className = 'entry-header';
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'entry-header';
 
-    // Buat link ke GitHub Wiki
     const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
 
     let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="color: #1a73e8; text-decoration: none; font-weight: bold;">${highlightText(entry.kata, query)}</a></span>`;
@@ -49,10 +48,9 @@ function renderEntry(entry, query = '') {
     if (entry.kelas_kata) {
         kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
     }
-    // Tambahkan ikon link
     kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.9rem; color: #1a73e8; text-decoration: none; margin-left: 5px; background: #e8f0fe; padding: 2px 6px; border-radius: 4px;">🔗 Wiki</a>`;
-    header.innerHTML = kataHtml;
-    card.appendChild(header);
+    headerDiv.innerHTML = kataHtml;
+    card.appendChild(headerDiv);
 
     // --- Makna ---
     if (entry.makna && entry.makna.length > 0) {
@@ -209,6 +207,24 @@ async function loadData() {
     applyFilters();
 }
 
+// --- Random Entry Feature ---
+function showRandomEntry() {
+    if (kamusData.length === 0) {
+        alert('Data kamus belum dimuat. Silakan tunggu sebentar.');
+        return;
+    }
+    const randomIndex = Math.floor(Math.random() * kamusData.length);
+    const entry = kamusData[randomIndex];
+    
+    searchInput.value = '';
+    filterKelas.value = 'all';
+    filterStatus.value = 'all';
+    filterTopik.value = 'all';
+    
+    resultCount.textContent = '1 entri acak';
+    renderResults([entry], '');
+}
+
 // --- Event Listeners ---
 if (searchInput) {
     searchInput.addEventListener('input', applyFilters);
@@ -229,24 +245,6 @@ if (filterStatus) {
 }
 if (filterTopik) {
     filterTopik.addEventListener('change', applyFilters);
-}
-
-// --- Random Entry Feature ---
-function showRandomEntry() {
-    if (kamusData.length === 0) {
-        alert('Data kamus belum dimuat. Silakan tunggu sebentar.');
-        return;
-    }
-    const randomIndex = Math.floor(Math.random() * kamusData.length);
-    const entry = kamusData[randomIndex];
-    
-    searchInput.value = '';
-    filterKelas.value = 'all';
-    filterStatus.value = 'all';
-    filterTopik.value = 'all';
-    
-    resultCount.textContent = '1 entri acak';
-    renderResults([entry], '');
 }
 
 // --- Event Listener untuk Random Button ---
