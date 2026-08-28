@@ -36,6 +36,7 @@ function renderEntry(entry, query = '') {
     const header = document.createElement('div');
     header.className = 'entry-header';
 
+    // Buat link ke GitHub Wiki
     const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
     
     let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="text-decoration: none; color: inherit;">${highlightText(entry.kata, query)}</a></span>`;
@@ -48,7 +49,7 @@ function renderEntry(entry, query = '') {
     if (entry.kelas_kata) {
         kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
     }
-    // Tambahkan ikon link kecil
+    // Tambahkan ikon link
     kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.8rem; color: #1a73e8; text-decoration: none; margin-left: 5px;">🔗</a>`;
     header.innerHTML = kataHtml;
     card.appendChild(header);
@@ -89,11 +90,11 @@ function renderEntry(entry, query = '') {
         card.appendChild(topikDiv);
     }
 
-    // Status
-    const statusSpan = document.createElement('span');
-    statusSpan.className = `entry-status ${entry.status || 'sebagian'}`;
-    statusSpan.textContent = entry.status || 'sebagian';
-    card.appendChild(statusSpan);
+    // Status - HAPUS! (tidak ditampilkan)
+    // const statusSpan = document.createElement('span');
+    // statusSpan.className = `entry-status ${entry.status || 'sebagian'}`;
+    // statusSpan.textContent = entry.status || 'sebagian';
+    // card.appendChild(statusSpan);
 
     return card;
 }
