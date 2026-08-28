@@ -32,11 +32,13 @@ function renderEntry(entry, query = '') {
     const card = document.createElement('div');
     card.className = 'entry-card';
 
-    // Header
+    // Header dengan link ke GitHub Wiki
     const header = document.createElement('div');
     header.className = 'entry-header';
+
+    const wikiLink = `https://github.com/Fikaramandio/korpus-bahasa-Gayo/wiki/${encodeURIComponent(entry.kata)}`;
     
-    let kataHtml = `<span class="kata">${highlightText(entry.kata, query)}</span>`;
+    let kataHtml = `<span class="kata"><a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="text-decoration: none; color: inherit;">${highlightText(entry.kata, query)}</a></span>`;
     if (entry.ejaan_alternatif) {
         kataHtml += ` <span class="ejaan-alternatif">(${highlightText(entry.ejaan_alternatif, query)})</span>`;
     }
@@ -46,6 +48,8 @@ function renderEntry(entry, query = '') {
     if (entry.kelas_kata) {
         kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
     }
+    // Tambahkan ikon link kecil
+    kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.8rem; color: #1a73e8; text-decoration: none; margin-left: 5px;">🔗</a>`;
     header.innerHTML = kataHtml;
     card.appendChild(header);
 
@@ -95,10 +99,8 @@ function renderEntry(entry, query = '') {
 }
 
 function renderResults(data, query = '') {
-    // Kosongkan container
     entriesContainer.innerHTML = '';
 
-    // Sembunyikan welcome section, tampilkan results section
     if (welcomeSection) welcomeSection.style.display = 'none';
     if (resultsSection) resultsSection.style.display = 'block';
 
@@ -113,7 +115,6 @@ function renderResults(data, query = '') {
         return;
     }
 
-    // Tampilkan setiap entri
     data.forEach(entry => {
         const card = renderEntry(entry, query);
         entriesContainer.appendChild(card);
@@ -129,7 +130,6 @@ function applyFilters() {
 
     let results = kamusData;
 
-    // Filter berdasarkan teks
     if (query) {
         const searchTerm = query.toLowerCase();
         results = results.filter(entry => {
@@ -147,21 +147,18 @@ function applyFilters() {
         });
     }
 
-    // Filter berdasarkan topik
     if (topik !== 'all') {
         results = results.filter(entry => 
             entry.topik && entry.topik.includes(topik)
         );
     }
 
-    // Filter berdasarkan kelas kata
     if (kelas !== 'all') {
         results = results.filter(entry => 
             entry.kelas_kata && entry.kelas_kata.toLowerCase().includes(kelas.toLowerCase())
         );
     }
 
-    // Filter berdasarkan status
     if (status !== 'all') {
         results = results.filter(entry => entry.status === status);
     }
