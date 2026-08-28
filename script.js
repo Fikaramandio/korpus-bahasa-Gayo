@@ -49,7 +49,7 @@ function renderEntry(entry, query = '') {
     if (entry.kelas_kata) {
         kataHtml += ` <span class="kelas-kata">${highlightText(entry.kelas_kata, query)}</span>`;
     }
-    // Tambahkan ikon link yang lebih jelas
+    // Tambahkan ikon link
     kataHtml += ` <a href="${wikiLink}" target="_blank" title="Buka di GitHub Wiki" style="font-size: 0.9rem; color: #1a73e8; text-decoration: none; margin-left: 5px; background: #e8f0fe; padding: 2px 6px; border-radius: 4px;">🔗 Wiki</a>`;
     header.innerHTML = kataHtml;
     card.appendChild(header);
@@ -229,6 +229,30 @@ if (filterStatus) {
 }
 if (filterTopik) {
     filterTopik.addEventListener('change', applyFilters);
+}
+
+// --- Random Entry Feature ---
+function showRandomEntry() {
+    if (kamusData.length === 0) {
+        alert('Data kamus belum dimuat. Silakan tunggu sebentar.');
+        return;
+    }
+    const randomIndex = Math.floor(Math.random() * kamusData.length);
+    const entry = kamusData[randomIndex];
+    
+    searchInput.value = '';
+    filterKelas.value = 'all';
+    filterStatus.value = 'all';
+    filterTopik.value = 'all';
+    
+    resultCount.textContent = '1 entri acak';
+    renderResults([entry], '');
+}
+
+// --- Event Listener untuk Random Button ---
+const randomButton = document.getElementById('randomButton');
+if (randomButton) {
+    randomButton.addEventListener('click', showRandomEntry);
 }
 
 // --- Init ---
