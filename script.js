@@ -2,24 +2,7 @@
 const DATA_URL = 'data/kamus.json';
 
 // --- Data Inline (untuk mode tanpa server) ---
-// Tempelkan isi file data/kamus_terstruktur_with_tags.json di sini
-window.inlineData = [
-  // ========== TEMPELKAN DATA KAMUS DI SINI ==========
-  // Contoh:
-  // {
-  //   "kata": "Belgong",
-  //   "ejaan_alternatif": "bĕlgong",
-  //   "suku_kata": "bĕ·le·gong / bĕl·gong",
-  //   "kelas_kata": "nomina",
-  //   "makna": ["Kalung, biasanya terbuat dari manik-manik..."],
-  //   "contoh": ["Disebut secara definisional..."],
-  //   "catatan": "Sebagai barang impor...",
-  //   "sumber": "Hazeu (1907)",
-  //   "status": "lengkap",
-  //   "topik": ["budaya", "perhiasan"]
-  // },
-  // ===================================================
-];
+window.inlineData = [];
 
 // --- State ---
 let kamusData = [];
@@ -116,8 +99,8 @@ function renderResults(data, query = '') {
     entriesContainer.innerHTML = '';
 
     // Sembunyikan welcome section, tampilkan results section
-    welcomeSection.style.display = 'none';
-    resultsSection.style.display = 'block';
+    if (welcomeSection) welcomeSection.style.display = 'none';
+    if (resultsSection) resultsSection.style.display = 'block';
 
     if (data.length === 0) {
         entriesContainer.innerHTML = `
@@ -146,7 +129,7 @@ function applyFilters() {
 
     let results = kamusData;
 
-    // Filter berdasarkan teks (kata kunci di semua field)
+    // Filter berdasarkan teks
     if (query) {
         const searchTerm = query.toLowerCase();
         results = results.filter(entry => {
@@ -184,18 +167,22 @@ function applyFilters() {
     }
 
     filteredData = results;
-    resultCount.textContent = `${results.length} entri ditemukan`;
+    if (resultCount) {
+        resultCount.textContent = `${results.length} entri ditemukan`;
+    }
     renderResults(results, query);
 }
 
 // --- Load Data ---
 async function loadData() {
-    entriesContainer.innerHTML = `
-        <div style="text-align: center; padding: 40px; color: #7f8c8d;">
-            <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 10px;"></i>
-            <p>Memuat data kamus...</p>
-        </div>
-    `;
+    if (entriesContainer) {
+        entriesContainer.innerHTML = `
+            <div style="text-align: center; padding: 40px; color: #7f8c8d;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <p>Memuat data kamus...</p>
+            </div>
+        `;
+    }
 
     try {
         const response = await fetch(DATA_URL);
@@ -211,33 +198,46 @@ async function loadData() {
             console.log(`✅ Data inline berhasil dimuat: ${kamusData.length} entri`);
         } else {
             console.error('❌ Tidak ada data inline yang tersedia.');
-            entriesContainer.innerHTML = `
-                <div style="text-align: center; padding: 40px; color: #e74c3c;">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px;"></i>
-                    <p>Data kamus tidak tersedia. Pastikan file <code>data/kamus.json</code> ada atau data inline telah diisi.</p>
-                    <p style="font-size: 0.9rem; color: #95a5a6;">Error: ${error.message}</p>
-                </div>
-            `;
+            if (entriesContainer) {
+                entriesContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #e74c3c;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <p>Data kamus tidak tersedia. Pastikan file <code>data/kamus.json</code> ada.</p>
+                    </div>
+                `;
+            }
             return;
         }
     }
 
-    totalEntries.textContent = kamusData.length;
+    if (totalEntries) {
+        totalEntries.textContent = kamusData.length;
+    }
     filteredData = kamusData;
     applyFilters();
 }
 
 // --- Event Listeners ---
-searchInput.addEventListener('input', applyFilters);
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        applyFilters();
-    }
-});
-searchButton.addEventListener('click', applyFilters);
-filterKelas.addEventListener('change', applyFilters);
-filterStatus.addEventListener('change', applyFilters);
-filterTopik.addEventListener('change', applyFilters);
+if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            applyFilters();
+        }
+    });
+}
+if (searchButton) {
+    searchButton.addEventListener('click', applyFilters);
+}
+if (filterKelas) {
+    filterKelas.addEventListener('change', applyFilters);
+}
+if (filterStatus) {
+    filterStatus.addEventListener('change', applyFilters);
+}
+if (filterTopik) {
+    filterTopik.addEventListener('change', applyFilters);
+}
 
 // --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
@@ -246,4 +246,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 console.log('🔍 Kamus Bahasa Gayo loaded.');
 console.log('📖 Sumber: Hazeu (1907)');
-console.log('💡 Gunakan kotak pencarian untuk mencari kata.');
