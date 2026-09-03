@@ -348,6 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
 });
 
-console.log('🔍 Kamus Bahasa Gayo loaded.');
-console.log('📖 Sumber: Hazeu (1907)');
+console.log('🔍 SARAHKATA - Korpus bahasa Gayo');
+console.log('📖 Sumber: Korpus bahasa Gayo | Aman Dio');
 console.log('💡 Fitur: Pencarian, Filter Topik, Filter Abjad A-Z, Entri Acak, Statistik Topik');
