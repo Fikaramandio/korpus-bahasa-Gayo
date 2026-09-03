@@ -1,4 +1,4 @@
-# scripts/clean_all.py
+# scripts/clean_all.py - Perbaikan untuk menangani halaman tanpa Salabisasi/Kelas kata
 import json
 import os
 import re
@@ -7,7 +7,6 @@ INPUT_FILE = "data/raw/wiki_pages_all.json"
 OUTPUT_FILE = "data/kamus_terstruktur_all.json"
 
 def clean_text(text):
-    """Membersihkan teks dari karakter yang tidak diinginkan."""
     if not text:
         return ""
     text = re.sub(r'\*\*', '', text)
@@ -18,96 +17,77 @@ def clean_text(text):
     text = re.sub(r'^:\s*', '', text)
     return text.strip()
 
-def extract_section(text, header, stop_patterns):
-    """Mengambil konten di bawah header sampai bertemu stop_patterns."""
-    patterns = [
-        rf'^\s*{header}\s*:\s*$',
-        rf'^\s*{header}\s*:',
-        rf'^\s*{header}\s*$',
-    ]
+def is_dictionary_page(text, title):
+    """Memeriksa apakah halaman adalah entri kamus."""
+    # Skip halaman daftar isi (satu huruf)
+    if len(title) == 1 and title.isalpha():
+        return False
     
-    start_pos = None
-    for pattern in patterns:
-        match = re.search(pattern, text, re.MULTILINE | re.IGNORECASE)
-        if match:
-            start_pos = match.end()
+    skip_titles = ['Home', 'Tata-bahasa', 'tata-bahasa', 'F', 'Q', 'V', 'X']
+    if title in skip_titles:
+        return False
+    
+    # Cek apakah ada marker entri kamus
+    markers = ["Salabisasi", "Kelas kata", "Kelas Kata", "Makna", "Contoh", 
+               "nomina", "verba", "adjektiva", "konjungsi"]
+    has_marker = any(marker in text for marker in markers)
+    
+    # Jika tidak ada marker formal, cek apakah ada definisi (angka/bullet)
+    if not has_marker:
+        # Cek pola definisi seperti "1. ..." atau "- ..." atau "**_Abang_**"
+        definition_patterns = [
+            r'\d+\.\s+',           # Angka diikuti titik
+            r'[-*]\s+',            # Bullet point
+            r'\*\*[^*]+\*\*',      # Teks tebal
+            r'[Ss]audara',         # Kata "saudara"
+            r'[Ss]ebutan',         # Kata "sebutan"
+        ]
+        has_definition = any(re.search(pattern, text) for pattern in definition_patterns)
+        if has_definition and len(text) > 50:
+            return True
+    
+    return has_marker
+
+def extract_definitions_from_text(text, title):
+    """Ekstrak definisi dari teks yang tidak memiliki struktur formal."""
+    definitions = []
+    
+    # Cari pola: "1. definisi", "2. definisi", dst
+    numbered_matches = re.findall(r'(\d+)\.\s+([^\n]+)', text)
+    if numbered_matches:
+        for num, def_text in numbered_matches:
+            definitions.append(clean_text(def_text))
+        return definitions
+    
+    # Cari pola: "* _kata_: definisi" atau "- kata: definisi"
+    bullet_matches = re.findall(r'[-*]\s+_\s*([^_]+)_\s*:\s*([^\n]+)', text)
+    if not bullet_matches:
+        bullet_matches = re.findall(r'[-*]\s+([^:]+):\s+([^\n]+)', text)
+    if bullet_matches:
+        for key, value in bullet_matches:
+            definitions.append(clean_text(f"{key}: {value}"))
+        return definitions
+    
+    # Cari pola: "kata: definisi" (tanpa bullet)
+    col_matches = re.findall(r'^([^:]+):\s+([^\n]+)', text, re.MULTILINE)
+    if col_matches:
+        for key, value in col_matches[:5]:  # Ambil maksimal 5 definisi
+            definitions.append(clean_text(f"{key}: {value}"))
+        return definitions
+    
+    # Jika tidak ada, ambil paragraf pertama yang bukan judul
+    lines = text.split('\n')
+    for line in lines:
+        line = line.strip()
+        if line and not line.startswith('#') and len(line) > 20:
+            definitions.append(clean_text(line))
             break
     
-    if start_pos is None:
-        return None
-    
-    stop_pattern = re.compile(rf'^\s*(?:{"|".join(stop_patterns)})\s*', re.MULTILINE | re.IGNORECASE)
-    stop_match = stop_pattern.search(text, start_pos)
-    
-    if stop_match:
-        content = text[start_pos:stop_match.start()]
-    else:
-        content = text[start_pos:]
-    
-    content = clean_text(content)
-    content = re.sub(r'[•\-*]\s*', '', content)
-    return content
-
-def extract_makna_belgong(text):
-    """Khusus untuk Belgong: ambil hanya makna utama."""
-    makna_match = re.search(r'Makna\s*:\s*([^.]*\.)', text, re.IGNORECASE | re.DOTALL)
-    if makna_match:
-        return [clean_text(makna_match.group(1))]
-    return []
-
-def extract_contoh_belgong(text):
-    """Khusus untuk Belgong: ambil hanya contoh yang benar."""
-    contoh_match = re.search(r'Contoh\s*(?:Penggunaan)?\s*:\s*(.*?)(?=Catatan|$)', text, re.IGNORECASE | re.DOTALL)
-    if not contoh_match:
-        return []
-    
-    contoh_text = contoh_match.group(1).strip()
-    contoh_text = re.sub(r'[•\-*]\s*', '', contoh_text)
-    contoh_text = clean_text(contoh_text)
-    
-    sentences = re.split(r'(?<=[.!?])\s+', contoh_text)
-    filtered = []
-    for s in sentences:
-        if any(kw in s.lower() for kw in ['disebut', 'perhiasan', 'manik', 'kalung']):
-            filtered.append(s)
-    return filtered[:1] if filtered else []
-
-def extract_contoh_alas(text):
-    """Khusus untuk Alas: gabungkan contoh yang terpecah."""
-    contoh_content = extract_section(text, "Contoh Kalimat", ["Konteks", "###", "##"])
-    if not contoh_content:
-        return []
-    
-    contoh_content = clean_text(contoh_content)
-    
-    examples = []
-    patterns = [
-        r'(Alas\s+[^:]+:[^.!?]+[.!?])',
-        r'(Alós\s+[^:]+:[^.!?]+[.!?])',
-        r'(Nge ara[^.!?]+[.!?])',
-        r'(Ialas[^.!?]+[.!?])',
-    ]
-    
-    for pattern in patterns:
-        matches = re.findall(pattern, contoh_content, re.IGNORECASE)
-        for m in matches:
-            clean = clean_text(m)
-            if clean and len(clean) > 10:
-                examples.append(clean)
-    
-    if not examples:
-        sentences = re.split(r'(?<=[.!?])\s+', contoh_content)
-        for s in sentences:
-            if any(kw in s.lower() for kw in ['alas', 'tikar', 'alòs', 'padi', 'serambi']):
-                clean = clean_text(s)
-                if clean and len(clean) > 10:
-                    examples.append(clean)
-    
-    return examples[:8] if examples else []
+    return definitions
 
 def parse_wiki_entry(text, title):
-    """Mengurai entri kamus dengan pendekatan berbasis header."""
-    if title.lower() == "home":
+    """Mengurai entri kamus dengan pendekatan fleksibel."""
+    if not is_dictionary_page(text, title):
         return None
     
     entry = {
@@ -137,31 +117,47 @@ def parse_wiki_entry(text, title):
     if kelas_match:
         entry['kelas_kata'] = clean_text(kelas_match.group(1))
     
-    # 4. Makna - khusus untuk Belgong
-    if title == "Belgong":
-        entry['makna'] = extract_makna_belgong(text)
-    else:
-        makna_content = extract_section(text, "Makna", ["Contoh", "Catatan", "Konteks", "###"])
-        if makna_content:
-            if '\n' in makna_content:
-                points = [clean_text(p) for p in makna_content.split('\n') if p.strip()]
-                entry['makna'] = points if len(points) > 1 else [makna_content]
-            else:
-                entry['makna'] = [makna_content]
+    # 4. Makna - coba berbagai pendekatan
+    makna_content = extract_section(text, "Makna", ["Contoh", "Catatan", "Konteks", "###"])
+    if not makna_content:
+        makna_match = re.search(r'Makna\s*:\s*([^\n]+)', text, re.IGNORECASE)
+        if makna_match:
+            makna_content = clean_text(makna_match.group(1))
     
-    # 5. Contoh - khusus per title
-    if title == "Belgong":
-        entry['contoh'] = extract_contoh_belgong(text)
-    elif title == "Alas":
-        entry['contoh'] = extract_contoh_alas(text)
-    else:
-        contoh_content = extract_section(text, "Contoh Kalimat", ["Konteks", "###", "##"])
-        if not contoh_content:
-            contoh_content = extract_section(text, "Contoh", ["Konteks", "###", "##"])
-        if contoh_content:
-            sentences = re.split(r'(?<=[.!?])\s+', contoh_content)
-            sentences = [s.strip() for s in sentences if s.strip() and len(s) > 5]
-            entry['contoh'] = sentences[:5] if sentences else []
+    # Jika masih tidak ada, gunakan ekstraktor definisi
+    if not makna_content:
+        definitions = extract_definitions_from_text(text, title)
+        if definitions:
+            entry['makna'] = definitions
+            # Coba tentukan kelas kata dari teks
+            if 'nomina' in text.lower() or 'kata benda' in text.lower():
+                entry['kelas_kata'] = 'Nomina'
+            elif 'verba' in text.lower() or 'kata kerja' in text.lower():
+                entry['kelas_kata'] = 'Verba'
+            elif 'adjektiva' in text.lower() or 'kata sifat' in text.lower():
+                entry['kelas_kata'] = 'Adjektiva'
+    
+    if makna_content and not entry['makna']:
+        if '\n' in makna_content:
+            points = [clean_text(p) for p in makna_content.split('\n') if p.strip()]
+            entry['makna'] = points if len(points) > 1 else [makna_content]
+        else:
+            entry['makna'] = [makna_content]
+    
+    # 5. Contoh - cari pola contoh kalimat
+    contoh_content = extract_section(text, "Contoh Kalimat", ["Konteks", "###", "##"])
+    if not contoh_content:
+        contoh_content = extract_section(text, "Contoh", ["Konteks", "###", "##"])
+    if not contoh_content:
+        # Cari pola: "* _kata_: contoh" atau "* contoh"
+        contoh_matches = re.findall(r'[-*]\s+([^:]+):\s+([^\n]+)', text)
+        if contoh_matches:
+            contoh_content = ' '.join([f"{k}: {v}" for k, v in contoh_matches[:3]])
+    
+    if contoh_content:
+        sentences = re.split(r'(?<=[.!?])\s+', contoh_content)
+        sentences = [s.strip() for s in sentences if s.strip() and len(s) > 5]
+        entry['contoh'] = sentences[:3] if sentences else []
     
     # 6. Catatan
     catatan_content = extract_section(text, "Catatan", ["Sumber", "##"])
@@ -176,8 +172,32 @@ def parse_wiki_entry(text, title):
     
     return entry
 
+def extract_section(text, header, stop_patterns):
+    patterns = [
+        rf'^\s*{header}\s*:\s*$',
+        rf'^\s*{header}\s*:',
+        rf'^\s*{header}\s*$',
+    ]
+    start_pos = None
+    for pattern in patterns:
+        match = re.search(pattern, text, re.MULTILINE | re.IGNORECASE)
+        if match:
+            start_pos = match.end()
+            break
+    if start_pos is None:
+        return None
+    stop_pattern = re.compile(rf'^\s*(?:{"|".join(stop_patterns)})\s*', re.MULTILINE | re.IGNORECASE)
+    stop_match = stop_pattern.search(text, start_pos)
+    if stop_match:
+        content = text[start_pos:stop_match.start()]
+    else:
+        content = text[start_pos:]
+    content = clean_text(content)
+    content = re.sub(r'[•\-*]\s*', '', content)
+    return content
+
 def main():
-    print("🔄 Memulai pembersihan semua data...")
+    print("🔄 Memulai pembersihan data (versi dengan fallback untuk halaman tanpa struktur)...")
     
     with open(INPUT_FILE, 'r', encoding='utf-8') as f:
         raw_pages = json.load(f)
@@ -198,7 +218,12 @@ def main():
         title = page.get("title", "")
         text = page.get("text", "")
         
-        if title.lower() == "home" or not any(kw in text for kw in ["Salabisasi", "Kelas"]):
+        # Skip halaman daftar isi
+        if title in ['Home', 'Tata-bahasa', 'tata-bahasa', 'F', 'Q', 'V', 'X']:
+            skipped.append(title)
+            continue
+        
+        if len(title) == 1 and title.isalpha():
             skipped.append(title)
             continue
         
@@ -208,16 +233,13 @@ def main():
         else:
             skipped.append(title)
     
-    # Simpan hasil
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         json.dump(kamus, f, indent=2, ensure_ascii=False)
     
-    # Simpan daftar yang dilewati
     with open("data/skipped_all.json", 'w', encoding='utf-8') as f:
         json.dump(skipped, f, indent=2, ensure_ascii=False)
     
-    # Statistik
     stats = {
         "total_halaman": len(raw_pages),
         "entri_kamus": len(kamus),

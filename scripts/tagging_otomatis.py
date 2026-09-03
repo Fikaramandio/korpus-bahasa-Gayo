@@ -11,7 +11,7 @@ OUTPUT_FILE = "data/kamus_terstruktur_with_tags.json"
 TOPIC_KEYWORDS = {
     "alam": ["hutan", "gunung", "sungai", "danau", "angin", "hujan", "tanah", "batu", "pohon", "daun", "akar", "bunga", "buah", "air", "api", "matahari", "bulan", "bintang", "awan", "kabut", "embun", "pasir", "lumpur", "rawa", "pantai", "laut"],
     
-    "ekologi": ["ekosistem", "lingkungan", "konservasi", "alami", "alam", "satwa", "flora", "fauna", "habitat", "koridor", "biodiversitas", "pelestarian"],
+    "ekologi":  ["ekologis", "ekosistem", "lingkungan", "konservasi", "alami", "alam", "satwa", "flora", "fauna", "habitat", "koridor", "biodiversitas", "pelestarian", "perilaku satwa"],
     
     "pertanian": ["padi", "sawah", "ladang", "tanam", "panen", "cangkul", "bajak", "garu", "bibit", "pupuk", "irigasi", "tumbuhan", "bercocok", "tanam", "kebun", "petani", "gabah", "jerami", "membajak", "menanam", "memotong", "mengetam"],
     
