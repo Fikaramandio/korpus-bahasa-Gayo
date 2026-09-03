@@ -7,6 +7,7 @@ window.inlineData = [];
 // --- State ---
 let kamusData = [];
 let filteredData = [];
+let selectedLetter = 'all'; // Untuk filter abjad
 
 // --- DOM References ---
 const searchInput = document.getElementById('searchInput');
@@ -123,6 +124,7 @@ function applyFilters() {
 
     let results = kamusData;
 
+    // Filter berdasarkan teks
     if (query) {
         const searchTerm = query.toLowerCase();
         results = results.filter(entry => {
@@ -140,18 +142,28 @@ function applyFilters() {
         });
     }
 
+    // Filter berdasarkan topik
     if (topik !== 'all') {
         results = results.filter(entry => 
             entry.topik && entry.topik.includes(topik)
         );
     }
 
+    // Filter berdasarkan huruf awal (A-Z)
+    if (selectedLetter !== 'all') {
+        results = results.filter(entry => 
+            entry.kata && entry.kata.toUpperCase().startsWith(selectedLetter)
+        );
+    }
+
+    // Filter berdasarkan kelas kata
     if (kelas !== 'all') {
         results = results.filter(entry => 
             entry.kelas_kata && entry.kelas_kata.toLowerCase().includes(kelas.toLowerCase())
         );
     }
 
+    // Filter berdasarkan status
     if (status !== 'all') {
         results = results.filter(entry => entry.status === status);
     }
@@ -220,9 +232,28 @@ function showRandomEntry() {
     filterKelas.value = 'all';
     filterStatus.value = 'all';
     filterTopik.value = 'all';
+    selectedLetter = 'all';
+    
+    // Reset tombol abjad
+    document.querySelectorAll('.alpha-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.letter === 'all');
+    });
     
     resultCount.textContent = '1 entri acak';
     renderResults([entry], '');
+}
+
+// --- Alphabet Navigation Feature ---
+function filterByLetter(letter) {
+    selectedLetter = letter;
+    
+    // Update tombol aktif
+    document.querySelectorAll('.alpha-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.letter === letter);
+    });
+    
+    // Terapkan filter
+    applyFilters();
 }
 
 // --- Event Listeners ---
@@ -247,6 +278,13 @@ if (filterTopik) {
     filterTopik.addEventListener('change', applyFilters);
 }
 
+// --- Event Listener untuk Alphabet ---
+document.querySelectorAll('.alpha-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        filterByLetter(this.dataset.letter);
+    });
+});
+
 // --- Event Listener untuk Random Button ---
 const randomButton = document.getElementById('randomButton');
 if (randomButton) {
@@ -258,37 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
 });
 
-// --- Alphabet Navigation Feature ---
-let selectedLetter = 'all';
-
-function filterByLetter(letter) {
-    selectedLetter = letter;
-    
-    // Update tombol aktif
-    document.querySelectorAll('.alpha-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.letter === letter);
-    });
-    
-    // Terapkan filter
-    applyFilters();
-}
-
-// --- Event Listeners untuk Alphabet ---
-document.querySelectorAll('.alpha-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        filterByLetter(this.dataset.letter);
-    });
-});
-
-// --- Modifikasi applyFilters() untuk dukung alphabet ---
-// Tambahkan di dalam applyFilters(), setelah filter topik dan sebelum filter kelas kata:
-
-// Filter berdasarkan huruf awal
-if (selectedLetter !== 'all') {
-    results = results.filter(entry => 
-        entry.kata && entry.kata.toUpperCase().startsWith(selectedLetter)
-    );
-}
-
-console.log('🔍 Korpus Bahasa Gayo loaded.');
-console.log('📖 Aman Dio');
+console.log('🔍 Kamus Bahasa Gayo loaded.');
+console.log('📖 Sumber: Hazeu (1907)');
+console.log('💡 Fitur: Pencarian, Filter Topik, Filter Abjad A-Z, Entri Acak');
