@@ -323,3 +323,40 @@ footer a:hover {
         text-align: center;
     }
 }
+/* Alphabet Navigation */
+.alphabet-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.alphabet-nav .alphabet-label {
+    font-size: 0.85rem;
+    color: #bdc3c7;
+    margin-right: 8px;
+}
+
+.alpha-btn {
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.alpha-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
+.alpha-btn.active {
+    background: #f1c40f;
+    color: #2c3e50;
+    border-color: #f1c40f;
+    font-weight: bold;
+}

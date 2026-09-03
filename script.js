@@ -258,5 +258,37 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
 });
 
-console.log('🔍 Kamus Bahasa Gayo loaded.');
-console.log('📖 Sumber: Hazeu (1907)');
+// --- Alphabet Navigation Feature ---
+let selectedLetter = 'all';
+
+function filterByLetter(letter) {
+    selectedLetter = letter;
+    
+    // Update tombol aktif
+    document.querySelectorAll('.alpha-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.letter === letter);
+    });
+    
+    // Terapkan filter
+    applyFilters();
+}
+
+// --- Event Listeners untuk Alphabet ---
+document.querySelectorAll('.alpha-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        filterByLetter(this.dataset.letter);
+    });
+});
+
+// --- Modifikasi applyFilters() untuk dukung alphabet ---
+// Tambahkan di dalam applyFilters(), setelah filter topik dan sebelum filter kelas kata:
+
+// Filter berdasarkan huruf awal
+if (selectedLetter !== 'all') {
+    results = results.filter(entry => 
+        entry.kata && entry.kata.toUpperCase().startsWith(selectedLetter)
+    );
+}
+
+console.log('🔍 Korpus Bahasa Gayo loaded.');
+console.log('📖 Aman Dio');
