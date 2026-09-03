@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarahkata</title>
+    <title>Kamus Bahasa Gayo</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1><i class="fas fa-book"></i> Sarahkata</h1>
-            <p>Korpus bahasa Gayo</p>
+            <h1><i class="fas fa-book"></i> Kamus Bahasa Gayo</h1>
+            <p>Kamus Gayo-Indonesia | Sumber: Hazeu (1907)</p>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Cari kata dalam bahasa Gayo atau Indonesia..." autofocus>
                 <button id="searchButton"><i class="fas fa-search"></i></button>
+                <button id="randomButton" title="Tampilkan kata acak">
+                    <i class="fas fa-shuffle"></i> Acak
+                </button>
             </div>
             <div class="filter-container">
                 <select id="filterKelas">
@@ -48,58 +50,60 @@
                 </select>
                 <span id="resultCount">0 entri ditemukan</span>
             </div>
-            <div class="alphabet-nav">
-    <span class="alphabet-label">Abjad:</span>
-    <button class="alpha-btn" data-letter="all">Semua</button>
-    <button class="alpha-btn" data-letter="A">A</button>
-    <button class="alpha-btn" data-letter="B">B</button>
-    <button class="alpha-btn" data-letter="C">C</button>
-    <button class="alpha-btn" data-letter="D">D</button>
-    <button class="alpha-btn" data-letter="E">E</button>
-    <button class="alpha-btn" data-letter="F">F</button>
-    <button class="alpha-btn" data-letter="G">G</button>
-    <button class="alpha-btn" data-letter="H">H</button>
-    <button class="alpha-btn" data-letter="I">I</button>
-    <button class="alpha-btn" data-letter="J">J</button>
-    <button class="alpha-btn" data-letter="K">K</button>
-    <button class="alpha-btn" data-letter="L">L</button>
-    <button class="alpha-btn" data-letter="M">M</button>
-    <button class="alpha-btn" data-letter="N">N</button>
-    <button class="alpha-btn" data-letter="O">O</button>
-    <button class="alpha-btn" data-letter="P">P</button>
-    <button class="alpha-btn" data-letter="Q">Q</button>
-    <button class="alpha-btn" data-letter="R">R</button>
-    <button class="alpha-btn" data-letter="S">S</button>
-    <button class="alpha-btn" data-letter="T">T</button>
-    <button class="alpha-btn" data-letter="U">U</button>
-    <button class="alpha-btn" data-letter="V">V</button>
-    <button class="alpha-btn" data-letter="W">W</button>
-    <button class="alpha-btn" data-letter="X">X</button>
-    <button class="alpha-btn" data-letter="Y">Y</button>
-    <button class="alpha-btn" data-letter="Z">Z</button>
-</div>
-<!-- Tambahan: Tombol Statistik -->
-<div class="stat-container">
-    <button id="showStatsBtn" class="stat-toggle">
-        <i class="fas fa-chart-bar"></i> Statistik Topik
-    </button>
-</div>
 
-<!-- Container untuk statistik (disembunyikan secara default) -->
-<div id="statsContainer" style="display: none;">
-    <div class="stats-content">
-        <h3>📊 Statistik Topik</h3>
-        <div id="statsList"></div>
-    </div>
-</div>
+            <!-- Statistik Topik -->
+            <div class="stat-container">
+                <button id="showStatsBtn" class="stat-toggle">
+                    <i class="fas fa-chart-bar"></i> 📊 Statistik Topik
+                </button>
+            </div>
+            <div id="statsContainer" style="display: none;">
+                <div class="stats-content">
+                    <h3>📊 Statistik Topik</h3>
+                    <div id="statsList"></div>
+                    <button id="closeStatsBtn" style="margin-top: 10px; padding: 6px 14px; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer;">Tutup</button>
+                </div>
+            </div>
+
+            <!-- Navigasi Abjad -->
+            <div class="alphabet-nav">
+                <span class="alphabet-label">Abjad:</span>
+                <button class="alpha-btn active" data-letter="all">Semua</button>
+                <button class="alpha-btn" data-letter="A">A</button>
+                <button class="alpha-btn" data-letter="B">B</button>
+                <button class="alpha-btn" data-letter="C">C</button>
+                <button class="alpha-btn" data-letter="D">D</button>
+                <button class="alpha-btn" data-letter="E">E</button>
+                <button class="alpha-btn" data-letter="F">F</button>
+                <button class="alpha-btn" data-letter="G">G</button>
+                <button class="alpha-btn" data-letter="H">H</button>
+                <button class="alpha-btn" data-letter="I">I</button>
+                <button class="alpha-btn" data-letter="J">J</button>
+                <button class="alpha-btn" data-letter="K">K</button>
+                <button class="alpha-btn" data-letter="L">L</button>
+                <button class="alpha-btn" data-letter="M">M</button>
+                <button class="alpha-btn" data-letter="N">N</button>
+                <button class="alpha-btn" data-letter="O">O</button>
+                <button class="alpha-btn" data-letter="P">P</button>
+                <button class="alpha-btn" data-letter="Q">Q</button>
+                <button class="alpha-btn" data-letter="R">R</button>
+                <button class="alpha-btn" data-letter="S">S</button>
+                <button class="alpha-btn" data-letter="T">T</button>
+                <button class="alpha-btn" data-letter="U">U</button>
+                <button class="alpha-btn" data-letter="V">V</button>
+                <button class="alpha-btn" data-letter="W">W</button>
+                <button class="alpha-btn" data-letter="X">X</button>
+                <button class="alpha-btn" data-letter="Y">Y</button>
+                <button class="alpha-btn" data-letter="Z">Z</button>
+            </div>
         </div>
     </header>
 
     <main>
         <div class="container">
             <div id="welcomeSection">
-                <h2>Korpus Aman Dio - Sarahkata</h2>
-                <p>Korpus ini berisi <strong id="totalEntries">0</strong> entri dari bahasa Gayo.</p>
+                <h2>Selamat Datang!</h2>
+                <p>Kamus ini berisi <strong id="totalEntries">0</strong> entri dari bahasa Gayo.</p>
                 <p>Mulai ketik di kotak pencarian di atas untuk mencari kata.</p>
             </div>
             <div id="resultsSection" style="display: none;">

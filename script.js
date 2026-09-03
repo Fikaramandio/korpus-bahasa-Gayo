@@ -7,7 +7,7 @@ window.inlineData = [];
 // --- State ---
 let kamusData = [];
 let filteredData = [];
-let selectedLetter = 'all'; // Untuk filter abjad
+let selectedLetter = 'all';
 
 // --- DOM References ---
 const searchInput = document.getElementById('searchInput');
@@ -124,7 +124,6 @@ function applyFilters() {
 
     let results = kamusData;
 
-    // Filter berdasarkan teks
     if (query) {
         const searchTerm = query.toLowerCase();
         results = results.filter(entry => {
@@ -142,28 +141,24 @@ function applyFilters() {
         });
     }
 
-    // Filter berdasarkan topik
     if (topik !== 'all') {
         results = results.filter(entry => 
             entry.topik && entry.topik.includes(topik)
         );
     }
 
-    // Filter berdasarkan huruf awal (A-Z)
     if (selectedLetter !== 'all') {
         results = results.filter(entry => 
             entry.kata && entry.kata.toUpperCase().startsWith(selectedLetter)
         );
     }
 
-    // Filter berdasarkan kelas kata
     if (kelas !== 'all') {
         results = results.filter(entry => 
             entry.kelas_kata && entry.kelas_kata.toLowerCase().includes(kelas.toLowerCase())
         );
     }
 
-    // Filter berdasarkan status
     if (status !== 'all') {
         results = results.filter(entry => entry.status === status);
     }
@@ -234,7 +229,6 @@ function showRandomEntry() {
     filterTopik.value = 'all';
     selectedLetter = 'all';
     
-    // Reset tombol abjad
     document.querySelectorAll('.alpha-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.letter === 'all');
     });
@@ -245,16 +239,59 @@ function showRandomEntry() {
 
 // --- Alphabet Navigation Feature ---
 function filterByLetter(letter) {
-    console.log('🔤 Filter huruf:', letter);
     selectedLetter = letter;
     
-    // Update tombol aktif
     document.querySelectorAll('.alpha-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.letter === letter);
     });
     
-    // Terapkan filter
     applyFilters();
+}
+
+// --- Statistik Topik Feature ---
+function renderStats() {
+    const statsContainer = document.getElementById('statsContainer');
+    const statsList = document.getElementById('statsList');
+    
+    if (!statsContainer || !statsList) return;
+    
+    const topicCount = {};
+    kamusData.forEach(entry => {
+        if (entry.topik && entry.topik.length > 0) {
+            entry.topik.forEach(topic => {
+                topicCount[topic] = (topicCount[topic] || 0) + 1;
+            });
+        }
+    });
+    
+    const sortedTopics = Object.entries(topicCount).sort((a, b) => b[1] - a[1]);
+    const maxCount = sortedTopics.length > 0 ? sortedTopics[0][1] : 1;
+    
+    let html = '';
+    sortedTopics.forEach(([topic, count]) => {
+        const percentage = (count / maxCount) * 100;
+        html += `
+            <div class="stat-item">
+                <span class="stat-name">${topic}</span>
+                <div class="stat-bar">
+                    <div class="stat-bar-fill" style="width: ${percentage}%;"></div>
+                </div>
+                <span class="stat-count">${count}</span>
+            </div>
+        `;
+    });
+    
+    statsList.innerHTML = html;
+    statsContainer.style.display = 'block';
+}
+
+function toggleStats() {
+    const container = document.getElementById('statsContainer');
+    if (container.style.display === 'none' || container.style.display === '') {
+        renderStats();
+    } else {
+        container.style.display = 'none';
+    }
 }
 
 // --- Event Listeners ---
@@ -279,19 +316,31 @@ if (filterTopik) {
     filterTopik.addEventListener('change', applyFilters);
 }
 
-// --- Event Listener untuk Alphabet (dengan Event Delegation) ---
+// Event Listener untuk Alphabet (Event Delegation)
 document.addEventListener('click', function(e) {
     const btn = e.target.closest('.alpha-btn');
     if (btn) {
-        console.log('🔤 Tombol diklik (delegasi):', btn.dataset.letter);
         filterByLetter(btn.dataset.letter);
     }
 });
 
-// --- Event Listener untuk Random Button ---
+// Event Listener untuk Random Button
 const randomButton = document.getElementById('randomButton');
 if (randomButton) {
     randomButton.addEventListener('click', showRandomEntry);
+}
+
+// Event Listener untuk Statistik Topik
+const statsBtn = document.getElementById('showStatsBtn');
+if (statsBtn) {
+    statsBtn.addEventListener('click', toggleStats);
+}
+
+const closeStatsBtn = document.getElementById('closeStatsBtn');
+if (closeStatsBtn) {
+    closeStatsBtn.addEventListener('click', function() {
+        document.getElementById('statsContainer').style.display = 'none';
+    });
 }
 
 // --- Init ---
@@ -299,63 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
 });
 
-// --- Statistik Topik Feature ---
-function renderStats() {
-    const statsContainer = document.getElementById('statsContainer');
-    const statsList = document.getElementById('statsList');
-    
-    if (!statsContainer || !statsList) return;
-    
-    // Hitung jumlah entri per topik
-    const topicCount = {};
-    kamusData.forEach(entry => {
-        if (entry.topik && entry.topik.length > 0) {
-            entry.topik.forEach(topic => {
-                topicCount[topic] = (topicCount[topic] || 0) + 1;
-            });
-        }
-    });
-    
-    // Urutkan dari yang terbanyak
-    const sortedTopics = Object.entries(topicCount).sort((a, b) => b[1] - a[1]);
-    const maxCount = sortedTopics.length > 0 ? sortedTopics[0][1] : 1;
-    
-    // Buat HTML untuk setiap topik
-    let html = '';
-    sortedTopics.forEach(([topic, count]) => {
-        const percentage = (count / maxCount) * 100;
-        html += `
-            <div class="stat-item">
-                <span class="stat-name">${topic}</span>
-                <div class="stat-bar">
-                    <div class="stat-bar-fill" style="width: ${percentage}%;"></div>
-                </div>
-                <span class="stat-count">${count}</span>
-            </div>
-        `;
-    });
-    
-    statsList.innerHTML = html;
-    
-    // Tampilkan container
-    statsContainer.style.display = 'block';
-}
-
-// --- Toggle Statistik ---
-function toggleStats() {
-    const container = document.getElementById('statsContainer');
-    if (container.style.display === 'none') {
-        renderStats();
-    } else {
-        container.style.display = 'none';
-    }
-}
-
-// --- Event Listener untuk Tombol Statistik ---
-const statsBtn = document.getElementById('showStatsBtn');
-if (statsBtn) {
-    statsBtn.addEventListener('click', toggleStats);
-}
 console.log('🔍 Kamus Bahasa Gayo loaded.');
 console.log('📖 Sumber: Hazeu (1907)');
-console.log('💡 Fitur: Pencarian, Filter Topik, Filter Abjad A-Z, Entri Acak');
+console.log('💡 Fitur: Pencarian, Filter Topik, Filter Abjad A-Z, Entri Acak, Statistik Topik');
