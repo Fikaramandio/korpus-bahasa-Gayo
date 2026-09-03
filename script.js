@@ -299,6 +299,63 @@ document.addEventListener('DOMContentLoaded', () => {
     loadData();
 });
 
+// --- Statistik Topik Feature ---
+function renderStats() {
+    const statsContainer = document.getElementById('statsContainer');
+    const statsList = document.getElementById('statsList');
+    
+    if (!statsContainer || !statsList) return;
+    
+    // Hitung jumlah entri per topik
+    const topicCount = {};
+    kamusData.forEach(entry => {
+        if (entry.topik && entry.topik.length > 0) {
+            entry.topik.forEach(topic => {
+                topicCount[topic] = (topicCount[topic] || 0) + 1;
+            });
+        }
+    });
+    
+    // Urutkan dari yang terbanyak
+    const sortedTopics = Object.entries(topicCount).sort((a, b) => b[1] - a[1]);
+    const maxCount = sortedTopics.length > 0 ? sortedTopics[0][1] : 1;
+    
+    // Buat HTML untuk setiap topik
+    let html = '';
+    sortedTopics.forEach(([topic, count]) => {
+        const percentage = (count / maxCount) * 100;
+        html += `
+            <div class="stat-item">
+                <span class="stat-name">${topic}</span>
+                <div class="stat-bar">
+                    <div class="stat-bar-fill" style="width: ${percentage}%;"></div>
+                </div>
+                <span class="stat-count">${count}</span>
+            </div>
+        `;
+    });
+    
+    statsList.innerHTML = html;
+    
+    // Tampilkan container
+    statsContainer.style.display = 'block';
+}
+
+// --- Toggle Statistik ---
+function toggleStats() {
+    const container = document.getElementById('statsContainer');
+    if (container.style.display === 'none') {
+        renderStats();
+    } else {
+        container.style.display = 'none';
+    }
+}
+
+// --- Event Listener untuk Tombol Statistik ---
+const statsBtn = document.getElementById('showStatsBtn');
+if (statsBtn) {
+    statsBtn.addEventListener('click', toggleStats);
+}
 console.log('🔍 Kamus Bahasa Gayo loaded.');
 console.log('📖 Sumber: Hazeu (1907)');
 console.log('💡 Fitur: Pencarian, Filter Topik, Filter Abjad A-Z, Entri Acak');

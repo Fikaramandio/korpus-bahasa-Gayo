@@ -360,3 +360,105 @@ footer a:hover {
     border-color: #f1c40f;
     font-weight: bold;
 }
+/* --- Statistik Topik --- */
+.stat-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.stat-toggle {
+    padding: 8px 20px;
+    background: #3498db;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.stat-toggle:hover {
+    background: #2980b9;
+}
+
+#statsContainer {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.stats-content h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    text-align: center;
+}
+
+#statsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #f8f9fa;
+    transition: background 0.2s;
+}
+
+.stat-item:hover {
+    background: #e8f0fe;
+}
+
+.stat-name {
+    width: 120px;
+    font-weight: bold;
+    color: #2c3e50;
+    flex-shrink: 0;
+}
+
+.stat-bar {
+    flex: 1;
+    height: 20px;
+    background: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    transition: width 0.8s ease;
+    width: 0%;
+}
+
+.stat-count {
+    width: 60px;
+    text-align: right;
+    font-weight: bold;
+    color: #2c3e50;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .stat-item {
+        flex-wrap: wrap;
+    }
+    .stat-name {
+        width: 80px;
+        font-size: 0.9rem;
+    }
+    .stat-count {
+        width: 40px;
+        font-size: 0.9rem;
+    }
+}
