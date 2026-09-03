@@ -245,6 +245,7 @@ function showRandomEntry() {
 
 // --- Alphabet Navigation Feature ---
 function filterByLetter(letter) {
+    console.log('🔤 Filter huruf:', letter);
     selectedLetter = letter;
     
     // Update tombol aktif
@@ -278,11 +279,13 @@ if (filterTopik) {
     filterTopik.addEventListener('change', applyFilters);
 }
 
-// --- Event Listener untuk Alphabet ---
-document.querySelectorAll('.alpha-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        filterByLetter(this.dataset.letter);
-    });
+// --- Event Listener untuk Alphabet (dengan Event Delegation) ---
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.alpha-btn');
+    if (btn) {
+        console.log('🔤 Tombol diklik (delegasi):', btn.dataset.letter);
+        filterByLetter(btn.dataset.letter);
+    }
 });
 
 // --- Event Listener untuk Random Button ---
